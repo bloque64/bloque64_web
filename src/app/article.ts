@@ -1,6 +1,14 @@
 export class Article {
-    identifier: String;
-    title: string;
-    body: string;
+
+    id: Number;
+    block: Number;
+    parent_author: String;
+    parent_permlink: String;
+    author: String;
+    permlink: String;
+    title: String;
+    body: String;
+    json_metadata: String;
+
   }
   
