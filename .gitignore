@@ -1,0 +1,3 @@
+node_modules/.cache/*
+node_modules/.cache/babel-loader/*
+node_modules/.cache/vue-loader/*
