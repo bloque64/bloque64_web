@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <h1>Portada</h1>
-    <p>Articulos de Portada</p>
+  <div class="main">
+    <div class="main_post">Text</div>
+    <div class="main2_post"></div>
+    <div class="main3_post"></div>
   </div>
 </template>
 
@@ -11,4 +12,38 @@ export default {
 }
 </script>
 <style>
+
+
+.main {
+
+  width: 1000px;
+  margin: 10px auto;
+  border: 2px solid black;
+
+}
+
+.main_post {
+  width: 600px;
+  height: 300px;
+  border: 1px solid blue;
+  box-sizing: border-box;
+  margin: 10px auto;
+}
+
+.main2_post {
+  width: 300px;
+  height: 150px;  
+  padding: 50px;
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+
+.main3_post {
+  width: 300px;
+  height: 150px;  
+  padding: 50px;
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+
 </style>
