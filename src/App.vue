@@ -7,15 +7,16 @@
         <ul class="topnav">
           <!-- <li><router-link to='/'><img src=./assets/bloque64_logo_35x35_no_circle.png></router-link></li> -->
           <li><router-link to='/'><img src=./assets/bloque64_logo_35x35_no_circle.png></router-link></li>
-          <li><a><router-link to='/'>Política</router-link></a></li>
-           <li><a><router-link to='/'>Economia</router-link></a></li>
-           <li><a><router-link to='/'>Sociedad</router-link></a></li>
-           <li><a><router-link to='/'>Musica</router-link></a></li>
-           <li><a><router-link to='/'>Deportes</router-link></a></li>
-           <li><a><router-link to='/'>Tecnología</router-link></a></li>
-          <li><a><router-link to='/'>Ciencia</router-link></a></li>
-          <li><a><router-link to='/'>Salud</router-link></a></li>
-          <li><a><router-link to='/'>Blockchain</router-link></a></li>
+          <li><a><router-link to='/politica'>Política</router-link></a></li>
+           <li><a><router-link to='/economia'>Economia</router-link></a></li>
+           <li><a><router-link to='/sociedad'>Sociedad</router-link></a></li>
+           <li><a><router-link to='/musica'>Música</router-link></a></li>
+           <li><a><router-link to='/deportes'>Deportes</router-link></a></li>
+           <li><a><router-link to='/tecnologia'>Tecnología</router-link></a></li>
+          <li><a><router-link to='/ciencia'>Ciencia</router-link></a></li>
+          <li><a><router-link to='/salud'>Salud</router-link></a></li>
+          <li><a><router-link to='/opinion'>Opinión</router-link></a></li>
+          <li><a><router-link to='/blockchain'>Blockchain</router-link></a></li>
             
           <li class="right"><a><router-link to='/register'>Registro</router-link></a></li>
           <li class="right"><a> <router-link to='/login'>Login</router-link></a></li>
