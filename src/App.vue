@@ -2,7 +2,7 @@
 
 <template>
   <div id="app">
-    <center><img src=./assets/bloque64_iso.png></center>
+    <center><img src=./assets/bloque64_iso_400.png></center>
     <nav>
         <ul class="topnav">
           <!-- <li><router-link to='/'><img src=./assets/bloque64_logo_35x35_no_circle.png></router-link></li> -->
