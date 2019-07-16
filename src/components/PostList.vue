@@ -1,8 +1,10 @@
 <template>
   <div>
     <h1>{{ category }}</h1>
-    {{ posts }}
-></post-summary>
+
+    <div v-for="post in posts" v-bind:key="post.authorperm">
+      {{ post.authorperm }}
+    </div>
   </div>
 </template>
 
