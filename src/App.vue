@@ -26,8 +26,6 @@
 
     	<footer class="footer-basic-centered">
 
-			<p class="footer-company-motto">El portal de noticias descentratralizado en castellano</p>
-
 			<p class="footer-links">
 				<a href="#">Portada</a>
 				·
@@ -141,7 +139,7 @@ ul.topnav li a {
 ul.topnav li a:hover:not(.active) {background-color: #073C51;}
 
 .footer-basic-centered{
-	background-color: #073C51;
+	background-color: #D2D2D2;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
@@ -153,13 +151,13 @@ ul.topnav li a:hover:not(.active) {background-color: #073C51;}
 }
 
 .footer-basic-centered .footer-company-motto{
-	color:  #8d9093;
+	color:  #black;
 	font-size: 18px;
 	margin: 0;
 }
 
 .footer-basic-centered .footer-company-name{
-	color:  #8f9296;
+	color:  #black;
 	font-size: 14px;
 	margin: 0;
 }
@@ -167,7 +165,7 @@ ul.topnav li a:hover:not(.active) {background-color: #073C51;}
 .footer-basic-centered .footer-links{
 	list-style: none;
 	font-weight: bold;
-	color:  #ffffff;
+	color:  #black;
 	padding: 35px 0 23px;
 	margin: 0;
 }
