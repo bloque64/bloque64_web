@@ -2,45 +2,13 @@
 
 <template>
   <div id="app">
-		<div class="topbar">
-		17.07.2019
-		</div>
+		
+
+    <top-bar/>
     <center><img src=./assets/bloque64_iso_400.png></center>
-    <nav>
-        <ul class="topnav">
-          <!-- <li><router-link to='/'><img src=./assets/bloque64_logo_40x40.png></router-link></li> -->
-          <!-- <li><router-link to='/'><img src=./assets/bloque64_logo_40x40.png></router-link></li> -->
-          <li><a><router-link to='/politica'>Política</router-link></a></li>
-           <li><a><router-link to='/economia'>Economia</router-link></a></li>
-           <li><a><router-link to='/sociedad'>Sociedad</router-link></a></li>
-           <li><a><router-link to='/musica'>Música</router-link></a></li>
-           <li><a><router-link to='/deportes'>Deportes</router-link></a></li>
-           <li><a><router-link to='/tecnologia'>Tecnología</router-link></a></li>
-          <li><a><router-link to='/ciencia'>Ciencia</router-link></a></li>
-          <li><a><router-link to='/salud'>Salud</router-link></a></li>
-          <li><a><router-link to='/opinion'>Opinión</router-link></a></li>
-          <li><a><router-link to='/blockchain'>Blockchain</router-link></a></li>
-        </ul>
-    </nav>
-    <router-view />
-
-    	<footer class="footer-basic-centered">
-
-			<p class="footer-links">
-				<a href="#">Portada</a>
-				·
-				<a href="#">Blog</a>
-				·
-				<a href="#">Sobre Nosotros</a>
-				·
-				<a href="#">FAQ</a>
-				·
-				<a href="#">Contacto</a>
-			</p>
-
-			<p class="footer-company-name">Bloque64 &copy; 2019</p>
-
-		</footer>
+    <navigation-bar/>
+    <router-view/>
+    <footer-panel/>
  
   </div>
 
@@ -48,7 +16,19 @@
 </template>
 
 <script>
+
+import NavigationBar from '@/components/NavigationBar.vue'
+import FooterPanel from '@/components/FooterPanel.vue'
+import TopBar from '@/components/TopBar.vue'
+
 export default {
+
+	name: 'app',
+	components: {
+		'navigation-bar': NavigationBar,
+    'footer-panel': FooterPanel,
+    'top-bar': TopBar,
+	}
 }
 </script>
 
@@ -105,114 +85,6 @@ src: local('American Typewriter Condensed Bold'), url('./assets/fonts/ufonts.com
 
 body {margin: 1;}
 
-ul.topnav li a:hover:not(.active) {background-color: #D2D2D2;}
-
-ul.topnav li a.active {background-color: #D2D2D2;}
-
-ul.topnav li.right {float: right;}
-
-@media screen and (max-width: 600px) {
-  ul.topnav li.right, 
-  ul.topnav li {float: none;}
-}
-
-.topbar {
-
-  margin: 0px;
-  padding: 10px;
-  overflow: hidden;
-  background-color: white;
-  font: normal 14px American Typewriter;
-  border-style: dotted;
-  border-left: 0px;
-  border-right: 0px;
-  border-top: 0px;
-  border-botton: 1px;
-  border-width: 1px;
-
-
-}
-
-ul.topnav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #D2D2D2;
-  font: normal 20px American Typewriter;
-  text-align: center;
-}
-
-ul.topnav li {display: inline;}
-
-ul.topnav li a {
-
-  color: black;
-  text-align: center;
-  vertical-align: middle;
-  padding: 7px 7px;
-  text-decoration: none;
-  display:inline-block;
-}
-
-ul.topnav li a:hover:not(.active) {background-color: #073C51;}
-
-.footer-basic-centered{
-	background-color: #D2D2D2;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-	box-sizing: border-box;
-	width: 100%;
-	text-align: center;
-	font: normal 14px American Typewriter;
-
-	padding: 20px;
-	margin-top: 20px;
-}
-
-.footer-basic-centered .footer-company-name{
-	color:  #black;
-	font-size: 14px;
-	margin: 0;
-}
-
-.footer-basic-centered .footer-links{
-	list-style: none;
-	color:  #black;
-	padding: 35px 0 23px;
-	margin: 0;
-}
-
-.footer-basic-centered .footer-links a{
-	display:inline-block;
-	text-decoration: none;
-	color: inherit;
-}
-
-/* If you don't want the footer to be responsive, remove these media queries */
-
-@media (max-width: 600px) {
-
-	.footer-basic-centered{
-		padding: 35px;
-	}
-
-	.footer-basic-centered .footer-company-motto{
-		font-size: 18px;
-	}
-
-	.footer-basic-centered .footer-company-name{
-		font-size: 12px;
-	}
-
-	.footer-basic-centered .footer-links{
-		font-size: 14px;
-		padding: 25px 0 20px;
-	}
-
-	.footer-basic-centered .footer-links a{
-		line-height: 1.8;
-	}
-}
 
 
 </style> 
