@@ -2,11 +2,14 @@
 
 <template>
   <div id="app">
+		<div class="topbar">
+		17.07.2019
+		</div>
     <center><img src=./assets/bloque64_iso_400.png></center>
     <nav>
         <ul class="topnav">
-          <!-- <li><router-link to='/'><img src=./assets/bloque64_logo_35x35_no_circle.png></router-link></li> -->
-          <li><router-link to='/'><img src=./assets/bloque64_logo_35x35_no_circle.png></router-link></li>
+          <!-- <li><router-link to='/'><img src=./assets/bloque64_logo_40x40.png></router-link></li> -->
+          <!-- <li><router-link to='/'><img src=./assets/bloque64_logo_40x40.png></router-link></li> -->
           <li><a><router-link to='/politica'>Política</router-link></a></li>
            <li><a><router-link to='/economia'>Economia</router-link></a></li>
            <li><a><router-link to='/sociedad'>Sociedad</router-link></a></li>
@@ -17,9 +20,6 @@
           <li><a><router-link to='/salud'>Salud</router-link></a></li>
           <li><a><router-link to='/opinion'>Opinión</router-link></a></li>
           <li><a><router-link to='/blockchain'>Blockchain</router-link></a></li>
-            
-          <li class="right"><a><router-link to='/register'>Registro</router-link></a></li>
-          <li class="right"><a> <router-link to='/login'>Login</router-link></a></li>
         </ul>
     </nav>
     <router-view />
@@ -116,24 +116,43 @@ ul.topnav li.right {float: right;}
   ul.topnav li {float: none;}
 }
 
+.topbar {
+
+  margin: 0px;
+  padding: 10px;
+  overflow: hidden;
+  background-color: white;
+  font: normal 14px American Typewriter;
+  border-style: dotted;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  border-botton: 1px;
+  border-width: 1px;
+
+
+}
+
 ul.topnav {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #D2D2D2;
-  font: normal 14px American Typewriter;
+  font: normal 20px American Typewriter;
+  text-align: center;
 }
 
-ul.topnav li {float: left;}
+ul.topnav li {display: inline;}
 
 ul.topnav li a {
-  display: block;
+
   color: black;
   text-align: center;
   vertical-align: middle;
   padding: 7px 7px;
   text-decoration: none;
+  display:inline-block;
 }
 
 ul.topnav li a:hover:not(.active) {background-color: #073C51;}
@@ -144,16 +163,10 @@ ul.topnav li a:hover:not(.active) {background-color: #073C51;}
 	box-sizing: border-box;
 	width: 100%;
 	text-align: center;
-	font: normal 13px American Typewriter;
+	font: normal 14px American Typewriter;
 
-	padding: 45px;
-	margin-top: 40px;
-}
-
-.footer-basic-centered .footer-company-motto{
-	color:  #black;
-	font-size: 18px;
-	margin: 0;
+	padding: 20px;
+	margin-top: 20px;
 }
 
 .footer-basic-centered .footer-company-name{
@@ -164,7 +177,6 @@ ul.topnav li a:hover:not(.active) {background-color: #073C51;}
 
 .footer-basic-centered .footer-links{
 	list-style: none;
-	font-weight: bold;
 	color:  #black;
 	padding: 35px 0 23px;
 	margin: 0;
