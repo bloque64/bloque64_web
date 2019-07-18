@@ -1,13 +1,8 @@
 <template>
-  <div>
-    <h1>{{ category }}</h1>
-
-    <div v-for="post in posts" v-bind:key="post.authorperm">
-      
-      <!-- {{ post.authorperm }} -->
-       <post-summary :title="post.title" />
-
-    </div>
+  <div class="main">
+    <div class="main_post">Text</div>
+    <div class="main2_post"></div>
+    <div class="main3_post"></div>
   </div>
 </template>
 
@@ -21,7 +16,7 @@ import axios from "axios"
 import PostSummary from '@/components/PostSummary.vue'
 
 export default {
-  name: 'PostList', 
+  name: 'PostCover', 
   props: ["category", "sort_by"],
   components: {
 		'post-summary': PostSummary,
@@ -53,6 +48,38 @@ export default {
   }
 
 }
+</script>
+<style>
+
+.main {
+  width: 1000px;
+  margin: 10px auto;
+  border: 2px solid black;
+}
+.main_post {
+  width: 600px;
+  height: 300px;
+  border: 1px solid blue;
+  box-sizing: border-box;
+  margin: 10px auto;
+}
+.main2_post {
+  width: 300px;
+  height: 150px;  
+  padding: 50px;
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+.main3_post {
+  width: 300px;
+  height: 150px;  
+  padding: 50px;
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+</style>
+
+
 </script>
 <style>
 </style>
