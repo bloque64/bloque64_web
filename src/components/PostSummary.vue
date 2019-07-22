@@ -1,9 +1,21 @@
 <template>
-    <div class="post-summary">
+
+      <!--
       <div class="post-picture-thumbnail"></div>
       <div class="summary_title">{{ title }}</div>
       <div class="summary_headlines">{{ headline }} </div>
-    </div>
+      -->
+
+      <div class="grid-container">
+        <div class="item1">@pgarcgo (76), Madrid</div>
+        <div class="item2">2</div>
+        <div class="item3">3</div>  
+        <div class="item4">4</div>
+        <div class="item5">5</div>
+        <div class="item6">6</div>
+        <div class="item7">7</div>
+      </div>
+
 </template>
 
 <script>
@@ -46,9 +58,48 @@ export default {
 
 .summary_headlines {
   margin: 2px;
-  padding: 10px;
+  padding: 2px;
   background-color:rgb(223, 219, 219);
   border: 1px dotted black;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 2px;
+  background-color: #2196F3;
+  padding: 2px;
+  width: 1000px;
+  border: 1px dotted black;
+  margin: 10px auto;
+}
+
+
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  font: normal 12px American Typewriter;
+  background-color: white;
+}
+
+.item3 {
+  grid-row-start: 2;
+  grid-row-end: 5;
+  font: normal 12px American Typewriter;
+  background-color: white;
+}
+
+.item4 {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 5;
+  font: normal 12px American Typewriter;
+  background-color: white;
+}
+
+
+
+
 
 </style>

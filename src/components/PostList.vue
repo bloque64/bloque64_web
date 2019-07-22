@@ -4,8 +4,8 @@
 
     <div v-for="post in posts" v-bind:key="post.authorperm">
       
-      <!-- {{ post.authorperm }} -->
-       <post-summary :title="post.title" />
+      {{ post.authorperm }}
+      <!-- <post-summary :title="post.title" /> -->
 
     </div>
   </div>
