@@ -18,22 +18,7 @@ export default {
 <style scoped>
 
 
-.top-bar {
 
-  margin: 0px;
-  padding: 10px;
-  overflow: hidden;
-  background-color: white;
-  font: normal 14px American Typewriter;
-  border-style: dotted;
-  border-left: 0px;
-  border-right: 0px;
-  border-top: 0px;
-  border-botton: 1px;
-  border-width: 1px;
-
-
-}
 
 </style>
 

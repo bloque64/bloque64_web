@@ -15,8 +15,8 @@ export default {
   name: 'Contact',
   data(){
     return {
-      email: /*put your email*/,
-      web: /*put your site url*/
+      email: /*put your email*/'',
+      web: /*put your site url*/'',
     }
   }
 }

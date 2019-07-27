@@ -40,7 +40,7 @@ export default {
   border-left: 1px;
   border-right: 1px;
   border-top: 1px;
-  border-botton: 1px;
+  border-bottom: 1px;
   border-width: 1px;
   width: 1000px;
   margin: 10px auto;

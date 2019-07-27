@@ -84,8 +84,6 @@ font-weight: normal;
 src: local('American Typewriter Condensed Bold'), url('./assets/fonts/ufonts.com_american-typewriter-condensed-bold.woff') format('woff');
 }
 
-body {margin: 1;}
-
 
 
 </style> 
