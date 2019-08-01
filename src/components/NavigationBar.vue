@@ -9,7 +9,6 @@
           <li><router-link to='/politica'>Politica</router-link></li>
           <li><router-link to='/economia'>Economia</router-link></li>
           <li><router-link to='/sucesos'>Sucesos</router-link></li>
-          <li><router-link to='/ciencia-tecnologia'>Ciencia y Tecnología</router-link></li>
           <li><router-link to='/opinion'>Opinión</router-link></li>
           <li><router-link to='/blockchain'>Blockchain</router-link></li>
 

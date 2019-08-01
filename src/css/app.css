@@ -2,21 +2,91 @@
 body {margin: 1;}
 
 .top-bar {
-
-  margin: 0px;
-  padding: 10px;
-  overflow: hidden;
   background-color: white;
-  font: normal 14px American Typewriter;
-  border-style: dotted;
-  border-left: 0px;
-  border-right: 0px;
-  border-top: 0px;
-  border-bottom: 1px;
-  border-width: 1px;
-
-
+  font: normal 1.1rem American Typewriter;
+  margin: 0 !important;
+  border-bottom: 0.15rem solid #5A5A5A;
 }
+.top-bar ul.countries{
+	
+	list-style-type: none;
+	display: inline;
+	padding: 0;
+	margin: 0;
+}
+.top-bar ul.countries > li{
+	display: inline;
+	font: normal 1.3rem American Typewriter;
+	color: #5A5A5A;
+}
+.top-bar ul.countries > li > a{
+	color: #5A5A5A;
+	margin: auto 0.15rem;
+	text-decoration: none;
+
+	-webkit-transition: all 0.05s ease;
+    -moz-transition: all 0.05s ease;
+    -o-transition: all 0.05s ease;
+    transition: all 0.05s ease;
+}
+.top-bar ul.countries > li > a:hover {
+	/*border-bottom: 0.2rem solid #5A5A5A;*/
+	opacity: 0.7;
+}
+.top-bar-iconsRight a{
+	text-decoration: none;
+	margin: auto 0.5rem;
+}
+.top-bar-iconsRight a:hover{
+	opacity: 0.7;
+}
+.top-bar-iconsRight a > i{
+	font-size: 1.5rem;
+	color: #5D5D5D;
+	padding-bottom: 0;
+}
+
+.lang > ul{
+	min-width: 3rem;
+}
+.lang > button{
+	margin-top: -0.3rem;
+}
+.lang > button:hover{
+	opacity: 0.75;
+}
+.lang > button:after{
+	display: none;
+}
+
+.country-menu > ul{
+	min-width: 3rem;
+}
+.country-menu > button{
+	margin-top: -1rem;
+	font-size: 1.5rem;	
+	color: #5D5D5D;	
+	padding-bottom: 0;	
+	height: 2.1rem;
+}
+.country-menu > button:hover{
+	opacity: 0.5;
+}
+.country-menu > button:after{
+	display: none;
+}
+
+
+
+
+.lang > button, .lang > ul > li {
+	font: normal 1.35rem American Typewriter;
+	color: #5A5A5A !important;
+	padding: 0;
+}
+
+
+
 
 ul.topnav li a:hover:not(.active) {background-color: #D2D2D2;}
 
