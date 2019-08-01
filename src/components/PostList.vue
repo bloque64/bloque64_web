@@ -94,7 +94,7 @@
                       </b-card>
                     </b-col>
                 </b-row>
-                
+                v
             </b-col>
 
             <b-col cols=6 sm=3 lg=2 order=1 order-sm=3>
