@@ -1,4 +1,4 @@
-node_modules/.cache/*
+npm node_modules/.cache/*
 node_modules/.cache/babel-loader/*
 node_modules/.cache/vue-loader/*
 node_modules/.cache/vue-loader/3583acc1e897540e440fc9844fa64e06.json
@@ -13,3 +13,4 @@ src/assets/Untitled.afdesign
 node_modules/.bin/acorn
 node_modules/.bin/atob
 node_modules/.bin/ansi-html
+node_modules

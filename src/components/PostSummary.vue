@@ -7,13 +7,13 @@
       -->
 
       <div class="grid-container">
-        <div class="item1">@pgarcgo (76), Madrid</div>
-        <div class="item2">2</div>
-        <div class="item3">3</div>  
-        <div class="item4">4</div>
-        <div class="item5">5</div>
-        <div class="item6">6</div>
-        <div class="item7">7</div>
+        <div class="item1">by @{{ author}}</div>
+        <div class="item2"></div>
+        <div class="item3"></div>  
+        <div class="item4">{{ title }}</div>
+        <div class="item5">test</div>
+        <div class="item6"></div>
+        <div class="item7"></div>
       </div>
 
 </template>
@@ -22,7 +22,7 @@
 
 export default {
   name: 'PostSummary', //this is the name of the component
-  props: ['title', 'authorperm', 'headline']
+  props: ['author', 'title', 'authorperm', 'headline']
 
 
 }
@@ -36,15 +36,14 @@ export default {
   overflow: hidden;
   background-color: white;
   font: normal 14px American Typewriter;
-  border-style: dotted;
   border-left: 1px;
   border-right: 1px;
   border-top: 1px;
-  border-botton: 1px;
+  border-botton: 10px;
   border-width: 1px;
   width: 1000px;
   margin: 10px auto;
-  border: 1px dotted black;
+  border-style: 1px solid black;
 
 }
 
@@ -53,25 +52,26 @@ export default {
   margin: 2px;
   padding: 10px;
   background-color:gray;
-  border: 1px dotted black;
+
 }
 
 .summary_headlines {
   margin: 2px;
   padding: 2px;
-  background-color:rgb(223, 219, 219);
-  border: 1px dotted black;
+  background-color: white;
+
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 2px;
-  background-color: #2196F3;
+  background-color: white;
   padding: 2px;
   width: 1000px;
-  border: 1px dotted black;
-  margin: 10px auto;
+  margin: 20px auto;
+  border-top-style: dotted;
+  border-width: 1px;
 }
 
 
@@ -80,6 +80,7 @@ export default {
   grid-column-end: 4;
   font: normal 12px American Typewriter;
   background-color: white;
+  border-style: solid;
 }
 
 .item3 {
@@ -87,6 +88,7 @@ export default {
   grid-row-end: 5;
   font: normal 12px American Typewriter;
   background-color: white;
+  border-style: solid;
 }
 
 .item4 {
@@ -96,10 +98,20 @@ export default {
   grid-row-end: 5;
   font: normal 12px American Typewriter;
   background-color: white;
+  text-align: left;
+  border-style: solid;
 }
 
-
-
+.item5 {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  font: normal 12px American Typewriter;
+  background-color: white;
+  text-align: left;
+  border-style: solid;
+}
 
 
 </style>

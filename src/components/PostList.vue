@@ -4,9 +4,8 @@
 
     <div v-for="post in posts" v-bind:key="post.authorperm">
       
-      {{ post.authorperm }}
-      <!-- <post-summary :title="post.title" /> -->
-
+      <!-- {{ post.authorperm }} /> -->
+      <post-summary :title="post.title" :authorperm="post.authorperm" :author="post.author" />
     </div>
   </div>
 </template>
@@ -25,7 +24,6 @@ export default {
   props: ["category", "sort_by"],
   components: {
 		'post-summary': PostSummary,
-
 	},
 
   data() {

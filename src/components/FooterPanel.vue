@@ -2,20 +2,18 @@
 		<div class="footer-basic-centered">
 
 			<p class="footer-links">
-				<a href="#">Home</a>
+				<a><router-link to='/portada'>Portada</router-link></a>
 				·
-				<a href="#">Blog</a>
+				<a href='https://steemit.com/@bloque64'>Blog</a>
+				.
+				<a><router-link to='/nosotros'>Nosotros</router-link></a>
 				·
-				<a href="#">Pricing</a>
+				<a><router-link to='/publicidad'>Nosotros</router-link></a>
 				·
-				<a href="#">About</a>
-				·
-				<a href="#">Faq</a>
-				·
-				<a href="#">Contact</a> 
+				<a><router-link to='/contacto'>Contacto</router-link></a>
 			</p> 
 
-			<p class="footer-company-name">Company Name &copy; 2015</p>
+			<p class="footer-company-name">Bloque64 Inc. &copy; 2020</p>
 
 		</div>
 </template>
