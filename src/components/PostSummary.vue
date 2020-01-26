@@ -7,13 +7,14 @@
       -->
 
       <div class="grid-container">
-        <div class="item1">by @{{ author}}</div>
+        <div class="item1">26.01.2020 - by @{{ author}} - Política</div>
         <div class="item2"></div>
-        <div class="item3"></div>  
-        <div class="item4">{{ title }}</div>
-        <div class="item5">test</div>
+        <div class="item3"><img src="https://steemitimages.com/p/C3TZR1g81UNaPs7vzNXHueW5ZM76DSHWEY7onmfLxcK2iQS78gsLNbkcRLHgrnxpJsmo4rh7Eon2vqKpZwfrm8p2KamJSsBkQhiCKeeAezdvKt8MugJosMx?format=match&mode=fit&width=200"></div>  
+        <div class="item4">{{ title }} <br><br> Detrás de los cristales llueve y llueve. Sobre los chopos medio deshojados, sobre los pardos tejados, sobre los campos, llueve… Pero esta noche dejará de hacerlo para no mojar la alfombra roja de los Goya, en Málaga. Goya se llamaba el cine que en esta ciudad de cine estaba en la céntrica calle</div>
+        <div class="item5">up | down / 256 BLQ   / 24 votos / 5 comments</div>
         <div class="item6"></div>
-        <div class="item7"></div>
+        
+
       </div>
 
 </template>
@@ -24,26 +25,13 @@ export default {
   name: 'PostSummary', //this is the name of the component
   props: ['author', 'title', 'authorperm', 'headline']
 
-
 }
 </script>
 <style>
 
 .post-summary {
 
-  margin: 2px;
-  padding: 10px;
-  overflow: hidden;
-  background-color: white;
-  font: normal 14px American Typewriter;
-  border-left: 1px;
-  border-right: 1px;
-  border-top: 1px;
-  border-botton: 10px;
-  border-width: 1px;
-  width: 1000px;
-  margin: 10px auto;
-  border-style: 1px solid black;
+
 
 }
 
@@ -64,53 +52,62 @@ export default {
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
   grid-gap: 2px;
   background-color: white;
-  padding: 2px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   width: 1000px;
-  margin: 20px auto;
-  border-top-style: dotted;
+  margin: 0px auto;
+  border-bottom-style: dotted;
   border-width: 1px;
-}
 
+}
 
 .item1 {
-  grid-column-start: 1;
-  grid-column-end: 4;
+
   font: normal 12px American Typewriter;
   background-color: white;
-  border-style: solid;
 }
 
-.item3 {
-  grid-row-start: 2;
-  grid-row-end: 5;
+
+.item2 {
+
   font: normal 12px American Typewriter;
   background-color: white;
-  border-style: solid;
+
+}
+
+
+
+.item3 {
+
+  font: normal 12px American Typewriter;
+  background-color: white;
+  padding-top: 5px;
+
 }
 
 .item4 {
-  grid-column-start: 2;
-  grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 5;
+
   font: normal 12px American Typewriter;
   background-color: white;
-  text-align: left;
-  border-style: solid;
+
 }
 
+
 .item5 {
-  grid-column-start: 1;
-  grid-column-end: 1;
-  grid-row-start: 2;
-  grid-row-end: 2;
+
   font: normal 12px American Typewriter;
   background-color: white;
-  text-align: left;
-  border-style: solid;
+
+}
+
+.item6 {
+
+  font: normal 12px American Typewriter;
+  background-color: white;
+
 }
 
 
