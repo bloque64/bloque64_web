@@ -1,0 +1,16 @@
+npm node_modules/.cache/*
+node_modules/.cache/babel-loader/*
+node_modules/.cache/vue-loader/*
+node_modules/.cache/vue-loader/3583acc1e897540e440fc9844fa64e06.json
+node_modules/.cache/babel-loader/a7892f7e146c50a90bf2ddea56768525.json
+node_modules/.cache/vue-loader/06ab9b6606c6dad8c38b6f4dcd998d8d.json
+node_modules/.cache/vue-loader/1bcfd82d87dfac9a2f351adcd3d34451.json
+node_modules/.cache/vue-loader/3df3b5624257d8354bae47b5db49d5ab.json
+node_modules/.cache/vue-loader/507574eaf3818ca6dc41c6a154c3f1f6.json
+node_modules/.cache/vue-loader/af202896e3591ac64550dd4dcc678d96.json
+node_modules/
+src/assets/Untitled.afdesign
+node_modules/.bin/acorn
+node_modules/.bin/atob
+node_modules/.bin/ansi-html
+node_modules
