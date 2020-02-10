@@ -20,11 +20,19 @@
 </template>
 
 <script>
-
+//Component that defines a post
 export default {
   name: 'PostSummary', //this is the name of the component
-  props: ['author', 'title', 'authorperm', 'headline']
-
+  //props: ['author', 'title', 'authorperm', 'headline', 'text', ''] // The post properties.
+  props:{
+    author : Object,
+    upVotes: Number,
+    title: String,
+    authorperm: String,
+    headline: String,
+    text: String,
+    url_img: String 
+  }
 }
 </script>
 <style>
