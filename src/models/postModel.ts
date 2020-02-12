@@ -5,11 +5,11 @@ export default class postModel{
     authorperm: String;
     headline: String;
     text: String;
-    url_img_list: Array<String>
+    url_img_list: String[]
 
     constructor(postId : Number, upvotes: Number, 
         title: String, authorperm: String, headline: String, 
-        text: String, url_img_list: Array <String>)
+        text: String, url_img_list: String[] )
         {
             this.postId = postId;
             this.upvotes = upvotes;
