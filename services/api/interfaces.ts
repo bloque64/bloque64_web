@@ -6,7 +6,6 @@ export interface IDiscussionService {
     get_discussions (filter: string, query: string): Promise<any>;
     
 }
-
 export interface IOnlineServiceAPI {
 
     urlAPI: string;
