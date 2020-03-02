@@ -1,10 +1,15 @@
 import axios from "axios"
-import {IDiscussionService, IOnlineServiceAPI} from "./interfaces"
-import postModel from "~/models/postModel"
+import {IDiscussionService} from "../../utils/interfaces"
+import postModel from "../../models/postModel"
 import { injectable } from "inversify"
+import { dict_constructor } from "../../utils/decorators"
 
 @injectable()
-export default class scott_api_service implements IDiscussionService, IOnlineServiceAPI {
+export default class scott_api_service implements IDiscussionService {
+    get_discussion_by_filter: { trending: Function; new: Function; promoted: Function; hot: Function }
+    
+    
+    
     urlAPI: string
     get_discussions(filter: string, query: string): any {
         let return_info;
@@ -29,29 +34,13 @@ export default class scott_api_service implements IDiscussionService, IOnlineSer
      *
      */    
     constructor() {
-        this.urlAPI = 'https://scot-api.steem-engine.com/';        
+        this.urlAPI = 'https://scot-api.steem-engine.com/';
+        this.get_discussion_by_filter = { 
+            trending : this.get_discussion_by_trending,
+            new : this.get_discussion_by_trending,
+            hot : this.get_discussion_by_trending,
+            promoted: this.get_discussion_by_trending
+        }        
     }        
 }
 
-function dict_constructor (target : any, propertype : string, descriptor : PropertyDescriptor)
-{
-    const originalMethod  = descriptor.value;
-    descriptor.value = function (...args : any[]): postModel[]{
-        const discussion_info = originalMethod.apply(this, args);
-        const discussion_posts = discussion_info.map((post: { [x: string]: any }) => <postModel> { 
-            comments_number: post['children'],
-            upvotes: post['active_votes'].length,
-            title: post['title'],
-            authorperm: post['authorperm'],    
-            introductory_text: post['desc'],
-            permlink : post['permlink'],
-            url_img_list: post['json_metadata']['image'],
-            author : post['author'],
-            tags : post['tags'],
-            external_links: post['json_metadata']['links'] ,
-            mentioned_users: post['json_metadata']['users'],
-            main_tag : post['tags'][0],
-             })
-        return discussion_posts;                 
-    }        
-}

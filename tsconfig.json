@@ -2,13 +2,19 @@
     "compilerOptions": {
         "experimentalDecorators": true,
       "target": "es2018",
-      "module": "esnext",
+      
       "moduleResolution": "node",
       "lib": [
         "esnext",
         "esnext.asynciterable",
-        "dom"
+        "dom",
       ],
+      // configurations for ts-node
+      "rootDir": "src",
+      "module": "commonjs",
+      "allowSyntheticDefaultImports": true,
+      "noImplicitAny": true,
+      // ----------
       "esModuleInterop": true,
       "allowJs": true,
       "sourceMap": true,
@@ -25,10 +31,14 @@
       },
       "types": [
         "@types/node",        
-        "@nuxt/types"
+        "@nuxt/types",
+        
       ]
     },
     "exclude": [
       "node_modules"
-    ]
+    ],
+    
+    
+
   }

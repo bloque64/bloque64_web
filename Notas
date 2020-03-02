@@ -1,0 +1,8 @@
+Estoy trabajando contra un servicio, en forma de API o de lo que sea,
+el tema es que necesito crear una interfaz que defina el contrato de hablar
+con la portada. Pero no es precisamente con la portada, me hace falta devolver
+la informacion de los post. Tengo que hacer un mock.
+
+
+Cuál es la diferencia a nivel de implementación de hacer inject(type.PROPERTY NAME) a 
+hacer property = new PROPERTY NAME

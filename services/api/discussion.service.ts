@@ -1,10 +1,10 @@
 // This is the service for the front component
-import {IDiscussionService, IOnlineServiceAPI} from './interfaces'
+/* import {IDiscussionService} from '~/utils/interfaces'
 import {injectable} from "inversify"
 import postModel from '~/models/postModel';
 
 @injectable()
-export class discussionService implements IDiscussionService, IOnlineServiceAPI {
+export class discussionService implements IDiscussionService {
     urlAPI: string;
     
     get_discussions(filter: string, query: string): Array<postModel> {
@@ -15,4 +15,4 @@ export class discussionService implements IDiscussionService, IOnlineServiceAPI 
         this.urlAPI = urlAPI;        
     }
     
-}
+} */

@@ -9,13 +9,16 @@
   </div>
 </template>
 
-<script>
+<script lang = "ts">
 
 // import ScottApi from '@/services/api/scott'
 
 // https://scot-api.steem-engine.com/get_discussions_by_trending?token=BLQ&limit=20&tag=bloque64
 
-import axios from 'axios'
+// import axios from 'axios'
+
+import { mapState } from 'vuex'
+// import postModel from '~/models/postModel'
 import PostSummary from '~/components/PostSummary.vue'
 
 export default {
@@ -25,6 +28,10 @@ export default {
   },
   props: ['category', 'sort_by'],
 
+  async fetch ({ store }: any) {
+    await store.dispatch('get_by_trending', {})
+  },
+
   data () {
     return {
       loading: true,
@@ -33,8 +40,15 @@ export default {
     }
   },
 
-  created () {
-    axios
+  computed: {
+    ...mapState(['discussionList']),
+    get_posts () {
+      return this.discussionList
+    }
+  }
+
+  /* created () {
+     axios
       .get('https://scot-api.steem-engine.com/get_discussions_by_trending?token=BLQ&limit=20&tag=bloque64')
       .then((response) => {
         this.posts = response.data
@@ -45,8 +59,7 @@ export default {
       })
       // eslint-disable-next-line no-return-assign
       .finally(() => this.loading = false)
-  }
-
+  } */
 }
 </script>
 

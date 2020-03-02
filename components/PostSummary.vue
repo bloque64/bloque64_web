@@ -7,35 +7,43 @@
 
   <div class="grid-container">
     <div class="item1">
-      26.01.2020 - by @{{ author }} - Política
+      {{ date }} - by @{{ author }} - {{ main_tag }}
     </div>
     <div class="item2" />
     <div class="item3">
-      <img src="https://steemitimages.com/p/C3TZR1g81UNaPs7vzNXHueW5ZM76DSHWEY7onmfLxcK2iQS78gsLNbkcRLHgrnxpJsmo4rh7Eon2vqKpZwfrm8p2KamJSsBkQhiCKeeAezdvKt8MugJosMx?format=match&mode=fit&width=200">
+      <img src={{ url_img_list[0] }}>
     </div>
     <div class="item4">
-      {{ title }} <br><br> Detrás de los cristales llueve y llueve. Sobre los chopos medio deshojados, sobre los pardos tejados, sobre los campos, llueve… Pero esta noche dejará de hacerlo para no mojar la alfombra roja de los Goya, en Málaga. Goya se llamaba el cine que en esta ciudad de cine estaba en la céntrica calle
+      {{ title }} <br><br> {{ introductory_text }}
     </div>
     <div class="item5">
-      up | down / 256 BLQ   / 24 votos / 5 comments
+      up | down / {{ upvotes }} BLQ   / {{ upvotes }} votos / {{ comments_number }} comments
     </div>
     <div class="item6" />
   </div>
 </template>
 
-<script>
+<script lang = 'ts'>
+// import postModel from '~/models/postModel'
+
 // Component that defines a post
 export default {
   name: 'PostSummary', // this is the name of the component
   // props: ['author', 'title', 'authorperm', 'headline', 'text', ''] // The post properties.
   props: {
-    author: Object,
-    upVotes: Number,
+    comments_number: Number,
+    upvotes: Number,
     title: String,
     authorperm: String,
-    headline: String,
-    text: String,
-    url_img: String
+    introductory_text: String,
+    permlink: String,
+    url_img_list: Array,
+    author: String,
+    tags: Array,
+    external_links: Array,
+    mentioned_users: Array,
+    main_tag: String,
+    date: Date
   }
 }
 </script>

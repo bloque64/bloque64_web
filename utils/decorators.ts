@@ -1,4 +1,4 @@
-import postModel from "~/models/postModel";
+import postModel from "../models/postModel";
 
 export function dict_constructor (target : any, propertype : string, descriptor : PropertyDescriptor)
 {
