@@ -47,16 +47,7 @@ export default {
     }
   }
 
-  /* created () {
-     axios
-      .get('https://scot-api.steem-engine.com/get_discussions_by_trending?token=BLQ&limit=20&tag=bloque64')
-      .then((response) => {
-        this.posts = response.data
-      })
-      .catch((error) => {
-        console.log(error)
-        this.errored = true
-      })
+  /* created () {axios .get('https://scot-api.steem-engine.com/get_discussions_by_trending?token=BLQ&limit=20&tag=bloque64') .then((response) => { this.posts = response.data }) .catch((error) => { console.log(error) this.errored = true }) 
       // eslint-disable-next-line no-return-assign
       .finally(() => this.loading = false)
   } */

@@ -1,34 +1,28 @@
 import axios from "axios"
+import 'reflect-metadata'
 import {IDiscussionService} from "../../utils/interfaces"
 import postModel from "../../models/postModel"
 import { injectable } from "inversify"
 import { dict_constructor } from "../../utils/decorators"
 
+
 @injectable()
 export default class scott_api_service implements IDiscussionService {
     get_discussion_by_filter: { trending: Function; new: Function; promoted: Function; hot: Function }
-    
-    
-    
+    discussion : postModel[]        
     urlAPI: string
-    get_discussions(filter: string, query: string): any {
-        let return_info;
-        axios.get(this.urlAPI + '/get_dicussions_by_' + filter + '?' + query )
-        .then(
-            response => {
-                return_info = response.data;
-            }
-        )
-        return return_info;
+    get_discussions(filter: string, query: string): Promise<any> {    
+        
+        return axios.get(this.urlAPI + '/get_discussions_by_' + filter + '?' + query )                
     }
 
-    @dict_constructor
-    public get_discussion_by_trending(token = 'BLQ' , limit = '20', tag = 'bloque64'): postModel[] 
+    
+    public get_discussion_by_trending(token = 'BLQ' , limit = '20', tag = 'bloque64') 
     {
         const params = ['token=' +token, 'limit=' + limit, 'tag=' + tag];
         const query =  params.join('&') + Array.prototype.slice.call(arguments, 3).join('&');
-        const discussion_info = this.get_discussions('trending', query);        
-        return discussion_info;
+        
+        this.get_discussions('trending', query).then( response => this.discussion = dict_constructor(response.data) ).catch( (err) => console.log(err.message) );        
     }
     /**
      *
@@ -40,7 +34,8 @@ export default class scott_api_service implements IDiscussionService {
             new : this.get_discussion_by_trending,
             hot : this.get_discussion_by_trending,
             promoted: this.get_discussion_by_trending
-        }        
+        }
+         this.discussion = Array<postModel>()       
     }        
 }
 
