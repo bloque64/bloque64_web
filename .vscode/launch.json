@@ -1,30 +1,38 @@
 {
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch via NPM",
-            "runtimeExecutable": "npm",
-            "runtimeArgs": [
-                "run-script",
-                "debug"
-            ],
-            "port": 9229,
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}/utils/inversify.config.ts",
-            "outFiles": ["${workspaceFolder}/**/*.js"],
-            "preLaunchTask": "tsc: build - tsconfig.json"
+      {
+        "type": "chrome",
+        "request": "attach",
+        "name": "client: chrome",
+        "url":"http://localhost:9222",
+        "port": 9222,
+        "sourceMaps": true,
+        "webRoot": "${workspaceFolder}",
+        
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "server: nuxt",
+        "args": ["dev", "--sourcemap"],
+        
+        "osx": {
+          "program": "${workspaceFolder}/node_modules/.bin/nuxt"
         },
-        {
-            "type": "node",
-            "request": "attach",
-            "name": "Attach to nuxt",
-            "port": 9229,
-            
+        "sourceMaps": true,
+        "linux": {
+          "program": "${workspaceFolder}/node_modules/.bin/nuxt"
+        },
+        "windows": {
+          "program": "${workspaceFolder}/node_modules/nuxt/bin/nuxt.js"
         }
-
+      }
+    ],
+    "compounds": [
+      {
+        "name": "fullstack: nuxt",
+        "configurations": ["server: nuxt", "client: chrome"]
+      }
     ]
-}
+  }
