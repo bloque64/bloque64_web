@@ -35,6 +35,8 @@
     "inversify": "^5.0.1",
     "inversify-express-utils": "^6.3.2",
     "jest": "^24.1.0",
+    "nuxt-property-decorator": "^2.5.1",
+    "nuxt-ts": "^2.8.1",
     "reflect-metadata": "^0.1.13",
     "ts-node": "^8.6.2",
     "vue-jest": "^4.0.0-0"
