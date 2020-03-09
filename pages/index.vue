@@ -1,31 +1,46 @@
 <template>
   <div id="app">
-    <top-bar />
+    <TopBar />
     <center><img src="~assets/bloque64_iso_400.png"></center>
-    <navigation-bar />
-    <postList-panel />
+    <NavigationBar />
+    <PostList />
     <router-view />
-    <footer-panel />
+    <FooterPanel />
   </div>
 </template>
 
-<script>
+<script lang = "ts">
 
+import 'reflect-metadata'
+import { Vue, Component } from 'vue-property-decorator'
+// import postModel from '~/models/postModel'
 import NavigationBar from '~/components/NavigationBar.vue'
 import FooterPanel from '~/components/FooterPanel.vue'
 import TopBar from '~/components/TopBar.vue'
 import PostList from '~/components/PostList.vue'
 
-export default {
-
+@Component({
+  components: {
+    NavigationBar,
+    PostList,
+    FooterPanel,
+    TopBar
+  },
+  middleware: 'discussion_load'
+})
+class initialPage extends Vue {
+}
+/* export default {
   name: 'App',
+  middleware: 'discussion_load',
   components: {
     'navigation-bar': NavigationBar,
     'postList-panel': PostList,
     'footer-panel': FooterPanel,
     'top-bar': TopBar
   }
-}
+} */
+export default initialPage
 </script>
 
 <style>
