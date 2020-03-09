@@ -1,7 +1,12 @@
-import { Store } from 'vuex'
-import { initialiseStores } from '~/utils/store-accessor'
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-const initializer = (store: Store<any>) => initialiseStores(store)
+Vue.use(Vuex)
+export const Store = new Vuex.Store({
+  /*
+  Ideally if all your modules are dynamic
+  then your store is registered initially
+  as a completely empty object
+  */
+})
 
-export const plugins = [initializer]
-export * from '~/utils/store-accessor'
