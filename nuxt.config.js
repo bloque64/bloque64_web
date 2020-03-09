@@ -60,14 +60,27 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
-      return Object.assign({}, config, {
-        devtool: 'source-map'
-      })
+      if (ctx.isDev) {
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+      }
     }
   },
+  /*
+  ** Inversify crashes without this
+  */
   render: {
     bundleRenderer: {
       runInNewContext: false
     }
+  },
+  /*
+  ** Wihtout this vue config I can't debug in Chrome
+  */
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true
+    }
   }
+
 }
