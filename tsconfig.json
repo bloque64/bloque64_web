@@ -11,11 +11,13 @@
       ],
       // configurations for ts-node
       "rootDir": "src",
+      // Remember change module to esnext
       "module": "esnext",
       "allowSyntheticDefaultImports": true,
       "noImplicitAny": true,
       // ----------
       "esModuleInterop": true,
+      "emitDecoratorMetadata" : true,
       "allowJs": true,
       "sourceMap": true,
       "strict": true,
