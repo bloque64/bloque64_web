@@ -24,28 +24,16 @@
 </template>
 
 <script lang = 'ts'>
-// import postModel from '~/models/postModel'
+import 'reflect-metadata'
+import { Vue, Component, Prop } from 'vue-property-decorator'
+import postModel from '~/models/postModel'
 
-// Component that defines a post
-export default {
-  name: 'PostSummary', // this is the name of the component
-  // props: ['author', 'title', 'authorperm', 'headline', 'text', ''] // The post properties.
-  props: {
-    comments_number: Number,
-    upvotes: Number,
-    title: String,
-    authorperm: String,
-    introductory_text: String,
-    permlink: String,
-    url_img_list: Array,
-    author: String,
-    tags: Array,
-    external_links: Array,
-    mentioned_users: Array,
-    main_tag: String,
-    date: Date
-  }
+// Component that summarizes a post
+@Component
+class PostSummary extends Vue {
+  @Prop() post: postModel | undefined
 }
+export default PostSummary
 </script>
 <style>
 

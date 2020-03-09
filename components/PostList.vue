@@ -1,27 +1,36 @@
 <template>
   <div>
-    <h1>{{ category }}</h1>
+    <h1>Category</h1>
 
     <div v-for="post in posts" :key="post.authorperm">
       <!-- {{ post.authorperm }} /> -->
-      <post-summary :title="post.title" :authorperm="post.authorperm" :author="post.author" />
+      <PostSummary />
     </div>
   </div>
 </template>
 
 <script lang = "ts">
 
-// import ScottApi from '@/services/api/scott'
-
-// https://scot-api.steem-engine.com/get_discussions_by_trending?token=BLQ&limit=20&tag=bloque64
-
-// import axios from 'axios'
-
-import { mapState } from 'vuex'
-// import postModel from '~/models/postModel'
+import { Vue, Component } from 'vue-property-decorator'
+import discussionStore from '../store/modules/discussions_store'
 import PostSummary from '~/components/PostSummary.vue'
+import postModel from '~/models/postModel'
 
-export default {
+@Component({
+  components: {
+    PostSummary
+  },
+  middleware: 'discussion_load'
+})
+class PostList extends Vue {
+  storeService = discussionStore
+  posts : postModel[] = []
+  setDiscussionPost () {
+    this.posts = this.storeService.context.getters.discussion
+  }
+}
+
+/* export default {
   name: 'PostList',
   components: {
     'post-summary': PostSummary
@@ -61,8 +70,9 @@ export default {
       })
       // eslint-disable-next-line no-return-assign
       .finally(() => this.loading = false)
-  } */
-}
+  }
+} */
+export default PostList
 </script>
 
 <style>
