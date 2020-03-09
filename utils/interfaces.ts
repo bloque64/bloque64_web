@@ -1,21 +1,27 @@
 // All the discussion posts service have to implement this contract
-// import postModel from "~/models/postModel"
+
+import { VuexModule } from 'vuex-module-decorators'
+import postModel from '../models/postModel'
 
 export interface IDiscussionService {
     
     get_discussion_by_filter: {
-        trending: Function,
-        new: Function,
-        promoted: Function,
-        hot: Function
+        trending: postModel[],
+        new: postModel[],
+        promoted: postModel[],
+        hot: postModel[]
     };
     get_discussions (filter: string, query: string): Promise<any>
     
 };
 
 
+export interface IDiscussionStore extends VuexModule {
+    
+}
+
 export const TYPES =
 {
     IDiscussionService: Symbol("IDiscussionService"),
-    
+    IDiscussionStore: Symbol("IDiscussionStore")
 }
