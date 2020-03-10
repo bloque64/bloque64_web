@@ -7,17 +7,17 @@
 
   <div class="grid-container">
     <div class="item1">
-      {{ date }} - by @{{ author }} - {{ main_tag }}
+      {{ post.date }} - by @{{ post.author }} - {{ post.main_tag }}
     </div>
     <div class="item2" />
     <div class="item3">
       <img src={{ url_img_list[0] }}>
     </div>
     <div class="item4">
-      {{ title }} <br><br> {{ introductory_text }}
+      {{ post.title }} <br><br> {{ post.introductory_text }}
     </div>
     <div class="item5">
-      up | down / {{ upvotes }} BLQ   / {{ upvotes }} votos / {{ comments_number }} comments
+      up | down / {{ post.upvotes }} BLQ   / {{ post.upvotes }} votos / {{ post.comments_number }} comments
     </div>
     <div class="item6" />
   </div>
