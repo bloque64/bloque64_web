@@ -6,10 +6,10 @@ import postModel from '../models/postModel'
 export interface IDiscussionService {
     
     get_discussion_by_filter: {
-        trending: postModel[],
-        new: postModel[],
-        promoted: postModel[],
-        hot: postModel[]
+        trending: Promise<postModel[]>,
+        new: Promise<postModel[]>,
+        promoted: Promise<postModel[]>,
+        hot: Promise<postModel[]>
     };
     get_discussions (filter: string, query: string): Promise<any>
     
