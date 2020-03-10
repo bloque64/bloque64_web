@@ -4,7 +4,9 @@ import { Module, VuexModule, Mutation, Action, getModule } from 'vuex-module-dec
 import postModel from '../../models/postModel'
 import { IDiscussionService, IDiscussionStore, TYPES } from '../../utils/interfaces'
 import {Store} from "../index"
+
 // import { injectable } from "inversify"
+
 
 const service: IDiscussionService = container.get<IDiscussionService>(TYPES.IDiscussionService)
 @Module({
@@ -20,14 +22,18 @@ export class discussion_store extends VuexModule implements IDiscussionStore
     @Mutation
     setList ( discussionList : postModel[])
     {
-        this.discussionList =  discussionList;
+        this.discussionList =  discussionList;        
     }
     @Action ({commit : 'setList'})
     async get_by_trending () {
-        return service.get_discussion_by_filter['trending']        
+        console.log('Now in get by trending')
+        return await service.get_discussion_by_filter['trending']
+        
     }    
     get discussion() : postModel[] {
-        return this.discussionList
+        console.log('Now in the get_discussion from discussion_store')
+        console.log(this.discussionList)
+        return this.discussionList || null
     }
 }
 
