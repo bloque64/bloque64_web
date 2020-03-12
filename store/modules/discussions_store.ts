@@ -26,13 +26,9 @@ export class discussion_store extends VuexModule implements IDiscussionStore
     }
     @Action ({commit : 'setList'})
     async get_by_trending () {
-        console.log('Now in get by trending')
-        return await service.get_discussion_by_filter['trending']
-        
+        return await service.get_discussion_by_filter['trending']        
     }    
-    get discussion() : postModel[] {
-        console.log('Now in the get_discussion from discussion_store')
-        console.log(this.discussionList)
+    get discussion() : postModel[] {        
         return this.discussionList || null
     }
 }
