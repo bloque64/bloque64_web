@@ -12,13 +12,15 @@ export default class scott_api_service implements IDiscussionService {
     discussion : postModel[]        
     urlAPI: string
     async get_discussions(filter: string, query: string): Promise<any> {
-        return axios.get(this.urlAPI + '/get_discussions_by_' + filter + '?' + query )
+        return await axios.get(this.urlAPI + '/get_discussions_by_' + filter + '?' + query )
     }    
     async connect_to_api_for_get_discussion_by_trending(token = 'BLQ' , limit = '20', tag = 'bloque64') 
     {
         const params = ['token=' +token, 'limit=' + limit, 'tag=' + tag];
         const query =  params.join('&') + Array.prototype.slice.call(arguments, 3).join('&');        
-        await this.get_discussions('trending', query).then( response => { this.discussion = dict_constructor(response.data); console.log('Inside the get_discussion') } ).catch( (err) => console.log(Error (err.message) ) );
+        await this.get_discussions('trending', query).
+        then( response => { this.discussion = dict_constructor(response.data) } ).
+            catch( (err) => { console.log("que pasoo "); console.log(Error (err.message) ) } );
     }
     /**
      *
