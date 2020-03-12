@@ -1,15 +1,18 @@
 <template>
-  <div class="top-bar">
-  17.07.2019
+  <div class="TopBar">
+    17.07.2019
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'top-bar',
+  name: 'TopBar',
   props: {
-    msg: String
+    msg: {
+      type: String,
+      default: 'No existe el éxito, sino la belleza. Nosotros la buscamos, y la compartimos con usted'
+    }
   }
 }
 </script>

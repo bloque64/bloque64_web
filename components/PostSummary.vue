@@ -4,14 +4,16 @@
       <div class="summary_title">{{ title }}</div>
       <div class="summary_headlines">{{ headline }} </div>
       -->
-
-  <div class="grid-container">
+  <!-- <div class="grid-container">
+    <h1> Es lo que hay </h1>
+  </div>
+   --><div class="grid-container">
     <div class="item1">
       {{ post.date }} - by @{{ post.author }} - {{ post.main_tag }}
     </div>
     <div class="item2" />
     <div class="item3">
-      <img src={{ url_img_list[0] }}>
+      <img :src="mainPicture">
     </div>
     <div class="item4">
       {{ post.title }} <br><br> {{ post.introductory_text }}
@@ -26,13 +28,20 @@
 <script lang = 'ts'>
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import postModel from '~/models/postModel'
+import postModel from '../models/postModel'
 
 // Component that summarizes a post
 @Component
 class PostSummary extends Vue {
   @Prop() post: postModel | undefined
+  mainPicture: String | undefined
+  created () {
+    if (this.post) {
+      this.mainPicture = this.post.url_img_list[0]
+    }
+  }
 }
+
 export default PostSummary
 </script>
 <style>

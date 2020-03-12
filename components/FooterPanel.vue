@@ -1,20 +1,20 @@
 <template>
   <div class="footer-basic-centered">
-    <p class="footer-links">
-      <a><router-link to="/portada">Portada</router-link></a>
+    <div class="footer-links">
+      <!-- This will give a VDOM warning in the browser console because the routers page are not configured yet. -->
+      <a><nuxt-link to="/portada">Portada</nuxt-link></a>
       ·
       <a href="https://steemit.com/@bloque64">Blog</a>
       .
-      <a><router-link to="/nosotros">Nosotros</router-link></a>
+      <a><nuxt-link to="/nosotros">Nosotros</nuxt-link></a>
       ·
-      <a><router-link to="/publicidad">Nosotros</router-link></a>
-      ·
-      <a><router-link to="/contacto">Contacto</router-link></a>
-    </p>
+      <a><nuxt-link to="/contacto">Contacto</nuxt-link></a>
+    </div>
 
-    <p class="footer-company-name">
-      Bloque64 Inc. &copy; 2020
-    </p>
+    <div class="footer-company-name">
+      <p> Bloque64 Inc. &copy; 2020 </p>
+    <!--  -->
+    </div>
   </div>
 </template>
 
@@ -23,7 +23,10 @@
 export default {
   name: 'FooterPanel',
   props: {
-    msg: String
+    msg: {
+      type: String,
+      default: 'No existe el éxito, sino la belleza. Nosotros la buscamos, y la compartimos con usted'
+    }
   }
 }
 </script>

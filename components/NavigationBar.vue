@@ -22,7 +22,10 @@
 export default {
   name: 'NavigationBar',
   props: {
-    msg: String
+    msg: {
+      type: String,
+      default: 'No existe el éxito, sino la belleza. Nosotros la buscamos, y la compartimos con usted'
+    }
   }
 }
 </script>
