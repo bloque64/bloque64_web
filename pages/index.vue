@@ -4,8 +4,8 @@
     <center><img src="~assets/bloque64_iso_400.png"></center>
     <NavigationBar />
     <PostList />
-    <router-view />
     <FooterPanel />
+    <router-view />
   </div>
 </template>
 
@@ -18,6 +18,7 @@ import NavigationBar from '~/components/NavigationBar.vue'
 import FooterPanel from '~/components/FooterPanel.vue'
 import TopBar from '~/components/TopBar.vue'
 import PostList from '~/components/PostList.vue'
+import discussionStore from '~/store/modules/discussions_store'
 
 @Component({
   components: {
@@ -25,10 +26,12 @@ import PostList from '~/components/PostList.vue'
     PostList,
     FooterPanel,
     TopBar
-  },
-  middleware: 'discussion_load'
+  }
 })
-class initialPage extends Vue {
+class index extends Vue {
+  created () {
+    discussionStore.get_by_trending()
+  }
 }
 /* export default {
   name: 'App',
@@ -40,7 +43,8 @@ class initialPage extends Vue {
     'top-bar': TopBar
   }
 } */
-export default initialPage
+
+export default index
 </script>
 
 <style>
@@ -88,7 +92,6 @@ font-style: normal;
 font-weight: normal;
 src: local('American Typewriter Condensed Bold'), url('~assets/fonts/ufonts.com_american-typewriter-condensed-bold.woff') format('woff');
 }
-
 body {margin: 1;}
 
 </style>
