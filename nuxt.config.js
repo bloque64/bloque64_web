@@ -82,5 +82,4 @@ export default {
       devtools: true
     }
   }
-
 }
