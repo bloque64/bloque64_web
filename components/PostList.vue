@@ -1,8 +1,9 @@
 <template>
   <div>
     <div v-for="post in posts" :key="post.authorperm">
-      {{ post.title }}
-      <PostSummary :post="post" />
+      <b-container>
+        <PostSummary :post="post" />
+      </b-container>
     </div>
   </div>
 </template>

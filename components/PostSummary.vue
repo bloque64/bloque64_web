@@ -1,27 +1,28 @@
 <template>
-  <!--
-      <div class="post-picture-thumbnail"></div>
-      <div class="summary_title">{{ title }}</div>
-      <div class="summary_headlines">{{ headline }} </div>
-      -->
-  <!-- <div class="grid-container">
-    <h1> Es lo que hay </h1>
-  </div>
-   --><div class="grid-container">
-    <div class="item1">
-      {{ post.date }} - by @{{ post.author }} - {{ post.main_tag }}
-    </div>
-    <div class="item2" />
-    <div class="item3">
-      <img :src="mainPicture">
-    </div>
-    <div class="item4">
-      {{ post.title }} <br><br> {{ post.introductory_text }}
-    </div>
-    <div class="item5">
-      up | down / {{ post.upvotes }} BLQ   / {{ post.upvotes }} votos / {{ post.comments_number }} comments
-    </div>
-    <div class="item6" />
+  <div>
+    <b-head>
+      <b-card-title>
+        {{ post.title }}
+      </b-card-title>
+      <b-card-subtitle>
+        {{ post.date }} - by @{{ post.author }} - {{ post.main_tag }}
+      </b-card-subtitle>
+    </b-head>
+    <b-card class="mb-3">
+      <b-row>
+        <b-col md="3">
+          <b-card-img :src="mainPicture" img-alt="Card image" img-left width="250px" />
+        </b-col>
+        <b-col md="9">
+          <b-card-text>
+            {{ post.introductory_text }}
+          </b-card-text>
+        </b-col>
+      </b-row>
+      <b-card-footer>
+        up | down / {{ post.upvotes }} BLQ   / {{ post.upvotes }} votos / {{ post.comments_number }} comments
+      </b-card-footer>
+    </b-card>
   </div>
 </template>
 
@@ -47,7 +48,9 @@ export default PostSummary
 <style>
 
 .post-summary {
-
+  position: relative;
+  text-align: right;
+  font-family: "../assets/fonts/ufonts.com_american-typewriter.woff";
 }
 
 .summary_title {
@@ -55,7 +58,8 @@ export default PostSummary
   margin: 2px;
   padding: 10px;
   background-color:gray;
-
+  font-family: '../assets/fonts/ufonts.com_american-typewriter-bold.woff';
+  font-size:25px
 }
 
 .summary_headlines {
@@ -101,8 +105,7 @@ export default PostSummary
 }
 
 .item4 {
-
-  font: normal 12px American Typewriter;
+  font-family: "../assets/fonts/ufonts.com_american-typewriter.woff";
   background-color: white;
 
 }
