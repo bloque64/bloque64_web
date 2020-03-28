@@ -3,5 +3,9 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"workbench.enableExperiments": false,
+		"extensions.showRecommendationsOnlyOnDemand": true
+	}
 }
