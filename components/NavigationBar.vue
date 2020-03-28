@@ -3,16 +3,16 @@
     <ul class="topnav">
       <!-- <li><router-link to='/'><img src=./assets/bloque64_logo_40x40.png></router-link></li> -->
       <!-- <li><router-link to='/'><img src=./assets/bloque64_logo_40x40.png></router-link></li> -->
-      <li><a><router-link to="/politica">Politica</router-link></a></li>
-      <li><a><router-link to="/economia">Economia</router-link></a></li>
-      <li><a><router-link to="/sociedad">Sociedad</router-link></a></li>
-      <li><a><router-link to="/musica">Música</router-link></a></li>
-      <li><a><router-link to="/deportes">Deportes</router-link></a></li>
-      <li><a><router-link to="/tecnologia">Tecnología</router-link></a></li>
-      <li><a><router-link to="/ciencia">Ciencia</router-link></a></li>
-      <li><a><router-link to="/salud">Salud</router-link></a></li>
-      <li><a><router-link to="/opinion">Opinión</router-link></a></li>
-      <li><a><router-link to="/blockchain">Blockchain</router-link></a></li>
+      <li><a><nuxt-link to="/politica">Politica</nuxt-link></a></li>
+      <li><a><nuxt-link to="/economia">Economia</nuxt-link></a></li>
+      <li><a><nuxt-link to="/sociedad">Sociedad</nuxt-link></a></li>
+      <li><a><nuxt-link to="/musica">Música</nuxt-link></a></li>
+      <li><a><nuxt-link to="/deportes">Deportes</nuxt-link></a></li>
+      <li><a><nuxt-link to="/tecnologia">Tecnología</nuxt-link></a></li>
+      <li><a><nuxt-link to="/ciencia">Ciencia</nuxt-link></a></li>
+      <li><a><nuxt-link to="/salud">Salud</nuxt-link></a></li>
+      <li><a><nuxt-link to="/opinion">Opinión</nuxt-link></a></li>
+      <li><a><nuxt-link to="/blockchain">Blockchain</nuxt-link></a></li>
     </ul>
   </nav>
 </template>

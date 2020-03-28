@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="post-summary">
     <b-head>
       <b-card-title>
         {{ post.title }}
@@ -15,12 +15,12 @@
         </b-col>
         <b-col md="9">
           <b-card-text>
-            {{ post.introductory_text }}
+            {{ post.introductory_text }}...
           </b-card-text>
         </b-col>
       </b-row>
       <b-card-footer>
-        up | down / {{ post.upvotes }} BLQ   / {{ post.upvotes }} votos / {{ post.comments_number }} comments
+        <b-card-img src="../assets/mockups/arrow_up.png" style="max-width:10px" />  {{ post.upvotes }} BLQ  {{ post.upvotes }} votos  <b-card-img src="../assets/mockups/talk_globe.png" style="max-width:20px" /> {{ post.comments_number }}
       </b-card-footer>
     </b-card>
   </div>
@@ -48,8 +48,6 @@ export default PostSummary
 <style>
 
 .post-summary {
-  position: relative;
-  text-align: right;
   font-family: "../assets/fonts/ufonts.com_american-typewriter.woff";
 }
 
