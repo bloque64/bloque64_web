@@ -41,7 +41,8 @@ export function dict_constructor (response_data: any)
         external_links: JSON.parse(post['json_metadata'])['links'],
         mentioned_users: JSON.parse(post['json_metadata'])['users'],
         main_tag : JSON.parse(post['json_metadata'])['tags'][0],
-        date: post['created'].split('T')[0]
+        date: post['created'].split('T')[0],
+        pending_token: post['pending_token'].toString().slice(0, post['pending_token'].toString().length -8) + "." + post['pending_token'].toString().slice(post['pending_token'].toString().length - 8, post['pending_token'].toString().length -6)
          })
     return discussion_posts;
 }

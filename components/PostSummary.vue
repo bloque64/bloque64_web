@@ -20,7 +20,7 @@
         </b-col>
       </b-row>
       <b-card-footer>
-        <b-card-img src="../assets/mockups/arrow_up.png" style="max-width:10px" />  {{ post.upvotes }} BLQ  {{ post.upvotes }} votos  <b-card-img src="../assets/mockups/talk_globe.png" style="max-width:20px" /> {{ post.comments_number }}
+        <b-card-img src="../assets/mockups/arrow_up.png" style="max-width:10px" />  {{ post.pending_token }} BLQ  {{ post.upvotes }} votos  <b-card-img src="../assets/mockups/talk_globe.png" style="max-width:20px" /> {{ post.comments_number }}
       </b-card-footer>
     </b-card>
   </div>
