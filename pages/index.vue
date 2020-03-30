@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <TopBar />
-    <center><img src="~assets/bloque64_iso_400.png"></center>
     <NavigationBar />
     <PostList />
     <FooterPanel />
@@ -16,7 +14,6 @@ import { Vue, Component } from 'vue-property-decorator'
 // import postModel from '~/models/postModel'
 import NavigationBar from '~/components/NavigationBar.vue'
 import FooterPanel from '~/components/FooterPanel.vue'
-import TopBar from '~/components/TopBar.vue'
 import PostList from '~/components/PostList.vue'
 import discussionStore from '~/store/modules/discussions_store'
 
@@ -24,8 +21,7 @@ import discussionStore from '~/store/modules/discussions_store'
   components: {
     NavigationBar,
     PostList,
-    FooterPanel,
-    TopBar
+    FooterPanel
   }
 })
 class index extends Vue {
@@ -33,16 +29,6 @@ class index extends Vue {
     discussionStore.get_by_trending()
   }
 }
-/* export default {
-  name: 'App',
-  middleware: 'discussion_load',
-  components: {
-    'navigation-bar': NavigationBar,
-    'postList-panel': PostList,
-    'footer-panel': FooterPanel,
-    'top-bar': TopBar
-  }
-} */
 
 export default index
 </script>

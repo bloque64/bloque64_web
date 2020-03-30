@@ -1,8 +1,26 @@
 <template>
   <div>
+    <TopBar />
+    <center><img src="~assets/bloque64_iso_400.png"></center>
     <nuxt />
   </div>
 </template>
+
+<script lang="ts">
+import 'reflect-metadata'
+import { Vue, Component } from 'vue-property-decorator'
+import TopBar from '~/components/TopBar.vue'
+
+@Component({
+  components: {
+    TopBar
+  }
+})
+class layout extends Vue {
+
+}
+export default layout
+</script>
 
 <style>
 html {
