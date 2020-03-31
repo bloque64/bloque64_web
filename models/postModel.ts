@@ -12,7 +12,8 @@ type postModel =
     external_links: String[],
     mentioned_users: String[],
     main_tag : String,
-    date: Date    
+    date: Date,
+    body: string | undefined    
 }
 
 export default postModel;

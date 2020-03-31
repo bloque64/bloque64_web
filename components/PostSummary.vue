@@ -2,7 +2,9 @@
   <div class="post-summary">
     <b-head>
       <b-card-title>
-        {{ post.title }}
+        <nuxt-link to="/post_view">
+          {{ post.title }}
+        </nuxt-link>
       </b-card-title>
       <b-card-subtitle>
         {{ post.date }} - by @{{ post.author }} - {{ post.main_tag }}

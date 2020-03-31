@@ -2,9 +2,9 @@
   <div class="footer-basic-centered">
     <div class="footer-links">
       <!-- This will give a VDOM warning in the browser console because the routers page are not configured yet. -->
-      <a><nuxt-link to="/portada">Portada</nuxt-link></a>
+      <a><nuxt-link to="/">Portada</nuxt-link></a>
       ·
-      <a href="https://steemit.com/@bloque64">Blog</a>
+      <a href="https://hive.blog/@bloque64">Blog</a>
       .
       <a><nuxt-link to="/nosotros">Nosotros</nuxt-link></a>
       ·
