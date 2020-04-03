@@ -2,9 +2,9 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "chrome",
+      "type": "firefox",
       "request": "launch",
-      "name": "client: chrome",
+      "name": "client: firefox",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}"
     },
@@ -24,7 +24,7 @@
   "compounds": [
     {
       "name": "fullstack: nuxt",
-      "configurations": ["server: nuxt", "client: chrome"]
+      "configurations": ["server: nuxt", "client: firefox"]
     }
   ]
 }
