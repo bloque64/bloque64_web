@@ -1,9 +1,24 @@
 <template>
-  <h1> Cosa </h1>
+  <div>
+    {{ postInfo }}
+  </div>
 </template>
 
 <script lang="ts">
+import 'reflect-metadata'
+import { Vue, Component, Prop } from 'vue-property-decorator'
+import postModel from '../models/postModel'
+// import { Remarkable} from 'remarkable'
 
+@Component
+class postDetail extends Vue {
+  @Prop() postInfo : postModel | undefined
+  created () {
+
+  }
+}
+
+export default postDetail
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

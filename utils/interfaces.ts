@@ -1,6 +1,4 @@
 // All the discussion posts service have to implement this contract
-
-import { VuexModule } from 'vuex-module-decorators'
 import postModel from '../models/postModel'
 
 export interface IDiscussionService {
@@ -15,13 +13,14 @@ export interface IDiscussionService {
     
 };
 
-
-export interface IDiscussionStore extends VuexModule {
-    
+export interface IDetailPostService {
+    get_detail_post (author:string, permlink: string) : any
+    get_detail_post_params (post: postModel) : Promise <postModel>
 }
 
 export const TYPES =
 {
     IDiscussionService: Symbol("IDiscussionService"),
+    IDetailPostService: Symbol("IDetailPostService"),
     IDiscussionStore: Symbol("IDiscussionStore")
 }

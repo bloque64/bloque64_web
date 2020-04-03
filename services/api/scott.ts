@@ -3,11 +3,11 @@ import 'reflect-metadata'
 import postModel from "../../models/postModel"
 import { injectable } from "inversify"
 import { dict_constructor } from "../../utils/decorators"
-import { IDiscussionService } from "../../utils/interfaces"
+import { IDiscussionService, IDetailPostService } from "../../utils/interfaces"
 
 
 @injectable()
-export default class scott_api_service implements IDiscussionService {
+export default class scott_api_service implements IDiscussionService, IDetailPostService {
     get_discussion_by_filter: { trending: Promise<postModel[]>; new: Promise<postModel[]>; promoted: Promise<postModel[]>; hot: Promise<postModel[]> }
     discussion : postModel[]        
     urlAPI: string
@@ -39,6 +39,12 @@ export default class scott_api_service implements IDiscussionService {
             promoted: this.get_discussion_by_trending()
         }
          this.discussion = Array<postModel>()
+    }
+    get_detail_post_params(post: postModel): Promise<postModel> {
+        throw new Error("Method not implemented.")
+    }
+    get_detail_post(author: string, permlink: string): Promise <postModel> {
+        throw new Error("Method not implemented.")
     }
 }
 

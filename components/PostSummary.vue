@@ -1,15 +1,17 @@
 <template>
   <div class="post-summary">
-    <b-head>
+    <h1>
       <b-card-title>
-        <nuxt-link to="/post_view">
-          {{ post.title }}
+        <nuxt-link :to="'/post_view/' + post.permlink">
+          <div @click="peekPost">
+            {{ post.title }}
+          </div>
         </nuxt-link>
       </b-card-title>
-      <b-card-subtitle>
+      <b-card-sub-title>
         {{ post.date }} - by @{{ post.author }} - {{ post.main_tag }}
-      </b-card-subtitle>
-    </b-head>
+      </b-card-sub-title>
+    </h1>
     <b-card class="mb-3">
       <b-row>
         <b-col md="3">
@@ -17,7 +19,7 @@
         </b-col>
         <b-col md="9">
           <b-card-text>
-            {{ post.introductory_text }}...
+            {{ renderedIntroductoryText }}...
           </b-card-text>
         </b-col>
       </b-row>
@@ -30,17 +32,30 @@
 
 <script lang = 'ts'>
 import 'reflect-metadata'
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator'
+// import { Marked } from '@ts-stack/markdown'
 import postModel from '../models/postModel'
+import detailPostStore from '~/store/modules/detail_post_store'
 
+// const md = new Remarkable({ html: true, linkify: true })
 // Component that summarizes a post
 @Component
 class PostSummary extends Vue {
   @Prop() post: postModel | undefined
   mainPicture: String | undefined
+  @Prop() renderedIntroductoryText: string = ''
   created () {
     if (this.post) {
       this.mainPicture = this.post.url_img_list[0]
+      // this.renderedIntroductoryText = md.render(this.post.introductory_text.toString())
+    }
+  }
+
+  @Emit()
+  peekPost () {
+    if (this.post) {
+      console.log('El post si es algo dentro del if')
+      detailPostStore.get_aditional_post_details(this.post)
     }
   }
 }

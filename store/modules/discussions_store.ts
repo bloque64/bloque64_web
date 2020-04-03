@@ -2,8 +2,8 @@ import 'reflect-metadata'
 import container from '../../utils/inversify.config'
 import { Module, VuexModule, Mutation, Action, getModule } from 'vuex-module-decorators'
 import postModel from '../../models/postModel'
-import { IDiscussionService, IDiscussionStore, TYPES } from '../../utils/interfaces'
-import {Store} from "../index"
+import { IDiscussionService, TYPES } from '../../utils/interfaces'
+import { Store } from "../index"
 
 // import { injectable } from "inversify"
 
@@ -16,7 +16,7 @@ const service: IDiscussionService = container.get<IDiscussionService>(TYPES.IDis
     dynamic: true,
     namespaced: true,
   })
-export class discussion_store extends VuexModule implements IDiscussionStore
+export class discussion_store extends VuexModule
 {
     discussionList: postModel[] = []
     @Mutation
