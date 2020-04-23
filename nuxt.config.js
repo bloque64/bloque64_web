@@ -23,11 +23,14 @@ export default {
   ** Global CSS
   */
   css: [
+    'medium-editor/dist/css/medium-editor.css',
+    'vue2-content-editor/src/themes/default.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: './plugins/medium-editor', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
