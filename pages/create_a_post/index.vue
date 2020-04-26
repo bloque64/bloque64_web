@@ -1,43 +1,93 @@
 <template>
-  <b-container>
-    <b-form-group>
-      <b-form-text tag="medium">
-        Escoja el tipo de noticia que desee publicar
-      </b-form-text>
-      <br>
-      <b-form-radio-group
-        id="radio-group-1"
-        v-model="selected"
-        :options="options"
-        name="radio-options"
-      />
+  <div>
+    <b-form @submit.stop.prevent="onSubmit">
+      <b-col sm="6">
+        <b-form-group
+          id="example-input-group-2"
+          label="Escoja el tipo de noticia"
+          label-for="example-input-2"
+        >
+          <b-form-select
+            id="example-input-2"
+            v-model="$v.selectedNoticeType.$model"
+            name="example-input-2"
+            :options="options"
+            :state="validateState('selectedNoticeType')"
+            aria-describedby="input-2-live-feedback"
+            size="lg"
+            class="mb-3"
+          />
+          <b-form-invalid-feedback id="input-2-live-feedback">
+            El tipo de noticia es obligatorio.
+          </b-form-invalid-feedback>
+        </b-form-group>
+      </b-col>
       <b-col sm="6">
         <b-form-textarea
           id="textarea"
-          rows="6"
+          rows="3"
           debounce
           plaintext
-          :value="selected"
+          :value="$v.selectedNoticeType.$model"
           no-resize
         />
-      </b-col>
-      <b-row>
-        <b-button variant="outline-primary" class="mt-5">
-          Aceptar
+        <b-form-group
+          id="example-input-group-3"
+          label="Escoja el tema de noticia"
+          label-for="example-input-3"
+        >
+          <b-form-select
+            id="example-input-3"
+            v-model="$v.selectedTag.$model"
+            name="example-input-3"
+            :options="tagNotice"
+            :state="validateState('selectedTag')"
+            aria-describedby="input-3-live-feedback"
+            size="lg"
+            class="mb-3"
+          />
+          <b-form-invalid-feedback id="input-3-live-feedback">
+            El tema de la noticia es obligatorio.
+          </b-form-invalid-feedback>
+        </b-form-group>
+        <b-button type="submit" variant="primary">
+          Submit
         </b-button>
-      </b-row>
-    </b-form-group>
-  </b-container>
+      </b-col>
+    </b-form>
+  </div>
 </template>
 
-<script lang = "ts">
+<script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component } from 'nuxt-property-decorator'
+import { validationMixin } from 'vuelidate'
+const { required } = require('vuelidate/lib/validators')
 
 @Component({
+  mixins: [validationMixin],
+  validations: {
+    selectedNoticeType: {
+      required
+    },
+    selectedTag: {
+      required
+    }
+  }
 })
 class createPost extends Vue {
-  selected : String = ''
+  selectedNoticeType :string = ''
+  submitted :boolean = false
+  tagNotice = [
+    'Política',
+    'Blockchain',
+    'Salud',
+    'Economía',
+    'Cultura',
+    'Sociedad',
+    'Deportes',
+    'Tecnología',
+    'Ciencia']
 
   options = [
     {
@@ -53,6 +103,19 @@ class createPost extends Vue {
       value: 'Aquí ponemos una sugerencia sobre cómo debe ser una noticia de este tipo3'
     }
   ]
+
+  validateState (name :string) {
+    const { $dirty, $error } = this.$v[name]
+    return $dirty ? !$error : null
+  }
+
+  onSubmit () {
+    this.$v.$touch()
+    if (this.$v.$anyError) {
+      return
+    }
+    alert('Form submitted!')
+  }
 }
 export default createPost
 </script>
