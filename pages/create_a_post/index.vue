@@ -50,8 +50,12 @@
             El tema de la noticia es obligatorio.
           </b-form-invalid-feedback>
         </b-form-group>
-        <b-button type="submit" variant="primary">
-          Submit
+        <b-button
+          :to="validateState('selectedNoticeType') && validateState('selectedTag') ? '/create_a_post/write_bulletin' : ''"
+          type="submit"
+          variant="primary"
+        >
+          Escribir noticia
         </b-button>
       </b-col>
     </b-form>
@@ -77,7 +81,10 @@ const { required } = require('vuelidate/lib/validators')
 })
 class createPost extends Vue {
   selectedNoticeType :string = ''
+  selectedTag: string = ''
   submitted :boolean = false
+  checkbox1 :boolean = false
+  checkbox2 :boolean = false
   tagNotice = [
     'Política',
     'Blockchain',
@@ -110,11 +117,13 @@ class createPost extends Vue {
   }
 
   onSubmit () {
+    console.log('I enter to the submit')
     this.$v.$touch()
-    if (this.$v.$anyError) {
-      return
-    }
-    alert('Form submitted!')
+    this.submitted = !this.$v.$anyError
+  }
+
+  coso () {
+    console.log('aaaaaa')
   }
 }
 export default createPost
