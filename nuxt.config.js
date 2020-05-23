@@ -24,13 +24,16 @@ export default {
   */
   css: [
     'medium-editor/dist/css/medium-editor.css',
-    'vue2-content-editor/src/themes/default.css'
+    'vue2-content-editor/src/themes/default.css',
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: './plugins/medium-editor', ssr: false }
+    { src: './plugins/medium-editor', ssr: false },
+    { src: './plugins/vuelidate.js' },
+    { src: '~/plugins/fontawesome.js' }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -39,6 +42,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxt/typescript-build'
+    /* '@nuxtjs/fontawesome' */
   ],
   /*
   ** Nuxt.js modules
@@ -47,8 +51,29 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth',
+    '@nuxtjs/markdownit'
   ],
+  markdownit: {
+    injected: true
+  },
+  /* fontawesome: {
+    component: 'fa',
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['faCog', 'faCalendar', 'faHome', 'faCircle', 'faCheck', 'faPerson']
+      }
+    ],
+    icons: {
+      solid: true,
+      brands: [
+        'faNode',
+        'faVuejs'
+      ]
+    }
+  }, */
   bootstrapVue: {
     icons: true // Install the IconsPlugin (in addition to BootStrapVue plugin
   },

@@ -4,7 +4,7 @@
       <b-container fluid>
         <b-col class="ml-n4">
           <b-nav-text style="letter-spacing: -0.113em;">
-            {{ peek_date() }}
+            {{ peekDate() }}
           </b-nav-text>
         </b-col>
         <b-col>
@@ -12,7 +12,7 @@
             Cosas se verán mateo
           </b-nav-form> -->
         </b-col>
-        <b-col offset="8" align-self="end">
+        <b-col offset="8" class="buttons-right">
           <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'pen-square' }" />
           <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'user-circle'}" />
           <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'list' }" />
@@ -22,30 +22,22 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'TopBar',
-  props: {
-    msg: {
-      type: String,
-      default: 'No existe el éxito, sino la belleza. Nosotros la buscamos, y la compartimos con usted'
-    }
-  },
-  data () {
-    return {
-      value: '',
-      context: null
-    }
-  },
-  methods: {
-    peek_date () {
-      const dt = new Date()
-      const dtf = new Intl.DateTimeFormat('sp', { year: 'numeric', month: 'short', day: '2-digit' })
-      const [{ value: mo },, { value: da },, { value: ye }] = dtf.formatToParts(dt)
-      return `${da} ${mo} ${ye}`
-    }
+<script lang="ts">
+import 'reflect-metadata'
+import { Vue, Component } from 'vue-property-decorator'
+
+@Component({
+  name: 'TopBar'
+})
+class TopBar extends Vue {
+  peekDate () {
+    const dt = new Date()
+    const dtf = new Intl.DateTimeFormat('sp', { year: 'numeric', month: 'short', day: '2-digit' })
+    const [{ value: mo },, { value: da },, { value: ye }] = dtf.formatToParts(dt)
+    return `${da} ${mo} ${ye}`
   }
 }
+export default TopBar
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -66,4 +58,7 @@ export default {
 
 }
 
+.buttons-right {
+  text-align: right;
+}
 </style>
