@@ -3,10 +3,12 @@
     <div v-for="postShot in postShots()" :key="postShot">
       <b-container :class="'grid-container'">
         <div v-for="post in postShot[0]" :key="post">
-          <PostSummary
-            :post="post"
-            :render-for-position="postShot[1]"
-          />
+          <b-col>
+            <PostSummary
+              :post="post"
+              :render-for-position="postShot[1]"
+            />
+          </b-col>
         </div>
       </b-container>
     </div>
