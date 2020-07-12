@@ -1,7 +1,7 @@
 <template>
   <div>
     <TopBar />
-    <center><img src="~assets/bloque64_iso_400.png"></center>
+    <center><img src="~/assets/bloque64_iso_400.png"></center>
     <nuxt />
   </div>
 </template>
@@ -10,14 +10,52 @@
 import 'reflect-metadata'
 import { Vue, Component } from 'vue-property-decorator'
 import TopBar from '~/components/TopBar.vue'
+import { transactionStore } from '~/store/modules/transaction_store'
 
 @Component({
   components: {
     TopBar
   }
+  // middleware: 'settingUserDetails'
 })
 class layout extends Vue {
 
+  created () {
+  if (process.browser) {
+    this.handleUrlInfo()
+    }
+  }
+
+  handleUrlInfo () {
+    const userName = new URLSearchParams(document.location.search).
+    get('username') || ''
+    const access_token = new URLSearchParams(document.location.search).get(
+      'access_token'
+    ) || ''
+    if (userName !== '' && access_token !== '') {
+      this.fetchInfo(userName, access_token)
+      // this.fetchUserDetails()
+      this.$router.replace('/')
+    }
+  }
+
+  async fetchInfo (userName: string, access_token: string ) {
+    await transactionStore.setUserNameAndToken( {userName, access_token}).catch(
+      (err:any) => console.log(err)
+    )
+  }
+
+  async fetchUserDetails () {
+    await transactionStore.setUserDetails()
+  }
+  /* async handleLog (userName : string, access_token: string) {
+    console.log('En el layout')
+    console.log(userName)
+    console.log(access_token)
+    console.log('Fin del layout')
+    await transactionStore.setUserNameAndToken( userName, access_token ).
+    then(response => console.log('En la promesa en el layout ', userName, ' ', access_token ) )
+  } */
 }
 export default layout
 </script>
