@@ -34,7 +34,7 @@ class layout extends Vue {
     ) || ''
     if (userName !== '' && access_token !== '') {
       this.fetchInfo(userName, access_token)
-      // this.fetchUserDetails()
+      this.fetchUserDetails()
       this.$router.replace('/')
     }
   }
@@ -48,14 +48,6 @@ class layout extends Vue {
   async fetchUserDetails () {
     await transactionStore.setUserDetails()
   }
-  /* async handleLog (userName : string, access_token: string) {
-    console.log('En el layout')
-    console.log(userName)
-    console.log(access_token)
-    console.log('Fin del layout')
-    await transactionStore.setUserNameAndToken( userName, access_token ).
-    then(response => console.log('En la promesa en el layout ', userName, ' ', access_token ) )
-  } */
 }
 export default layout
 </script>
