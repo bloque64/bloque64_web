@@ -1,6 +1,6 @@
 <template>
   <div class="post-summary">
-    <b-card class="mb-3" style="border: none;">
+    <b-card class="mb-3" style="border: none;" align="left">
       <strong v-if="renderForPosition === 'first_view'">
         <b-card-title class="summary_title">
           <nuxt-link :to="'/post_view/' + post.permlink" class="link">
@@ -18,7 +18,7 @@
           <b-card
             :img-src="mainPicture"
             img-alt="Card image"
-            img-bottom
+            :img-bottom="renderForPosition !== 'first_view'"
             :img-width="renderInfo[renderForPosition][2]"
           />
           <span v-if="renderForPosition === 'second_view'">
@@ -57,25 +57,11 @@
         </b-col>
       </b-row>
       <b-card-footer>
-        <span>
-          <font-awesome-layers>
-            <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'circle-notch' }" />
-            <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'chevron-up' }" />
-          </font-awesome-layers>
-          <font-awesome-layers>
-            <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'circle-notch' }" />
-            <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'chevron-down' }" />
-          </font-awesome-layers>
-        </span>
-        <span>
-          {{ post.pending_token }} BLQ <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'chevron-down' }" />
-        </span>
-        <span>
-          {{ post.upvotes }} votos <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'chevron-down' }" />
-        </span>
-        <span>
-          <b-card-img src="../assets/mockups/talk_globe.png" style="max-width:20px" /> {{ post.comments_number }}
-        </span>
+      <footerBarPost 
+        :numbersBLQ="post.pending_token"
+        :votesNumber="post.upvotes"
+        :commentsNumber="post.comments_number" 
+      />
       </b-card-footer>
     </b-card>
   </div>
@@ -85,8 +71,11 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator'
 import { Marked, Renderer } from '@ts-stack/markdown'
+import { JSDOM } from 'jsdom'
 import postModel from '~/models/postModel'
+import circleArrow from './molecules/circleArrow.vue'
 import detailPostStore from '~/store/modules/detail_post_store'
+import footerBarPost from '~/components/molecules/footerBarPost.vue';
 
 Marked.setOptions({
   renderer: new Renderer(),
@@ -100,6 +89,9 @@ Marked.setOptions({
 })
 // Component that summarizes a post
 @Component({
+  components: {
+    footerBarPost
+  }
 })
 class PostSummary extends Vue {
   @Prop() post: postModel | undefined
@@ -116,6 +108,7 @@ class PostSummary extends Vue {
     if (this.post) {
       this.mainPicture = this.post.url_img_list[0]
       const markdownToHtml = Marked.parse(this.post.introductory_text.toString())
+      global.DOMParser = new JSDOM().window.DOMParser
       const parser = new DOMParser()
       const parsedHtml = parser.parseFromString(markdownToHtml, 'text/html')
       const links = parsedHtml.getElementsByTagName('a')
@@ -186,10 +179,7 @@ export default PostSummary
 .card-footer{
   background-color: white;
   border: none;
-}
-
-span + span {
-    margin-left: 20px;
+  margin-left: -3%;
 }
 
 .first-introductory-text {
