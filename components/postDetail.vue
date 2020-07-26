@@ -7,15 +7,14 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import postModel from '../models/postModel'
+import detailPostStore from '~/store/modules/detail_post_store'
+import postModel from '~/models/postModel'
 // import { Remarkable} from 'remarkable'
 
-@Component
+@Component({
+})
 class postDetail extends Vue {
-  @Prop() postInfo : postModel | undefined
-  created () {
-
-  }
+  @Prop() postInfo = detailPostStore.post
 }
 
 export default postDetail

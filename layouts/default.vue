@@ -9,7 +9,7 @@
 <script lang="ts">
 import 'reflect-metadata'
 import { Vue, Component } from 'vue-property-decorator'
-import TopBar from '~/components/TopBar.vue'
+import TopBar from '~/components/organisms/TopBar.vue'
 import { transactionStore } from '~/store/modules/transaction_store'
 
 @Component({

@@ -1,4 +1,4 @@
-type postModel = 
+type postModel =
 {
     comments_number: Number,
     upvotes: Number,
@@ -13,7 +13,7 @@ type postModel =
     mentioned_users: String[],
     main_tag : String,
     date: Date,
-    body: string | undefined    
+    body: string | undefined
 }
 
-export default postModel;
+export default postModel

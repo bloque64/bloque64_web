@@ -12,8 +12,6 @@ import editor from '~/components/bulletin_editor.vue'
   }
 })
 class BulletinWritter extends Vue {
-    content :string = ''
-    options = {}
 }
 export default BulletinWritter
 </script>

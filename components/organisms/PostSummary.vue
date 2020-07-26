@@ -3,11 +3,11 @@
     <b-card class="mb-3" style="border: none;" align="left">
       <strong v-if="renderForPosition === 'first_view'">
         <b-card-title class="summary_title">
-          <nuxt-link :to="'/post_view/' + post.permlink" class="link">
-            <div @click="peekPost">
-              <b>{{ post.title }}</b>
-            </div>
-          </nuxt-link>
+          <titleAndLink
+            :author="post.author"
+            :permlink="post.permlink"
+            :title="post.title"
+          />
         </b-card-title>
       </strong>
       <b-card-sub-title class="summary_headlines">
@@ -16,19 +16,19 @@
       <b-row>
         <b-col :md="renderInfo[renderForPosition][0]">
           <b-card
-            :img-src="mainPicture"
             img-alt="Card image"
+            :img-src="mainPicture"
             :img-bottom="renderForPosition !== 'first_view'"
             :img-width="renderInfo[renderForPosition][2]"
           />
           <span v-if="renderForPosition === 'second_view'">
             <strong>
               <b-card-title class="summary_title">
-                <nuxt-link :to="'/post_view/' + post.permlink" class="link">
-                  <div @click="peekPost">
-                    {{ post.title }}
-                  </div>
-                </nuxt-link>
+                <titleAndLink 
+                  :author="post.author"
+                  :permlink="post.permlink"
+                  :title="post.title"
+                />
               </b-card-title>
             </strong>
             <b-card-text
@@ -41,11 +41,11 @@
         <b-col :md="renderInfo[renderForPosition][1]">
           <strong v-if="renderForPosition === 'third_view'">
             <b-card-title class="summary_title">
-              <nuxt-link :to="'/post_view/' + post.permlink" class="link">
-                <div @click="peekPost">
-                  {{ post.title }}
-                </div>
-              </nuxt-link>
+              <titleAndLink
+                :author="post.author"
+                :permlink="post.permlink"
+                :title="post.title"
+              />
             </b-card-title>
           </strong>
           <b-card-text
@@ -73,9 +73,10 @@ import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator'
 import { Marked, Renderer } from '@ts-stack/markdown'
 import { JSDOM } from 'jsdom'
 import postModel from '~/models/postModel'
-import circleArrow from './molecules/circleArrow.vue'
+import circleArrow from '~/components/molecules/circleArrow.vue'
 import detailPostStore from '~/store/modules/detail_post_store'
-import footerBarPost from '~/components/molecules/footerBarPost.vue';
+import footerBarPost from '~/components/molecules/footerBarPost.vue'
+import titleAndLink from '~/components/molecules/titleAndLink.vue'
 
 Marked.setOptions({
   renderer: new Renderer(),
@@ -90,7 +91,8 @@ Marked.setOptions({
 // Component that summarizes a post
 @Component({
   components: {
-    footerBarPost
+    footerBarPost,
+    titleAndLink
   }
 })
 class PostSummary extends Vue {
@@ -121,13 +123,6 @@ class PostSummary extends Vue {
         }
       }
       this.renderedIntroductoryText = parsedHtml.body.textContent
-    }
-  }
-
-  @Emit()
-  peekPost () {
-    if (this.post) {
-      detailPostStore.get_aditional_post_details(this.post)
     }
   }
 }

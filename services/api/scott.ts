@@ -1,13 +1,13 @@
 import axios from "axios"
 import 'reflect-metadata'
-import postModel from "../../models/postModel"
+import postModel from "~/models/postModel"
 import { injectable } from "inversify"
-import { dict_constructor } from "../../utils/decorators"
-import { IDiscussionService, IDetailPostService } from "../../utils/interfaces"
+import { dict_constructor } from "~/utils/decorators"
+import { IDiscussionService, IDetailPostService } from "~/utils/interfaces"
 
 
 @injectable()
-export default class scott_api_service implements IDiscussionService, IDetailPostService {
+class scott_api_service implements IDiscussionService, IDetailPostService {
     get_discussion_by_filter: { trending: Promise<postModel[]>; new: Promise<postModel[]>; promoted: Promise<postModel[]>; hot: Promise<postModel[]> }
     discussion : postModel[]        
     urlAPI: string
@@ -48,3 +48,4 @@ export default class scott_api_service implements IDiscussionService, IDetailPos
     }
 }
 
+export default scott_api_service

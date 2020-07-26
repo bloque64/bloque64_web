@@ -3,9 +3,9 @@
   "configurations": [
     {
       "type": "firefox",
-      "request": "launch",
+      "request": "attach",
       "name": "client: firefox",
-      "url": "http://localhost:3000",
+      "url": "http://localhost:8080",
       "webRoot": "${workspaceFolder}"
     },
     {

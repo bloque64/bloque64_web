@@ -121,10 +121,6 @@ class createPost extends Vue {
     this.$v.$touch()
     this.submitted = !this.$v.$anyError
   }
-
-  coso () {
-    console.log('aaaaaa')
-  }
 }
 export default createPost
 </script>

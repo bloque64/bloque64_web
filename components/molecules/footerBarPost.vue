@@ -1,4 +1,4 @@
-<template>
+<template class='footer'>
   <div>
     <span>
       <circleArrow :arrowDirection="'up'" class="footer-element" />
@@ -18,9 +18,7 @@
       <commentGlobe class="footer-element" />
       <numberA :number="votesNumber" class="footer-element" />
     </span>
-
   </div>
-  
 </template>
 
 <script lang="ts">
@@ -52,11 +50,14 @@ export default footerBarPost
 <style>
   .footer-element {
     display: inline-block;
-    font: normal 120% American Typewriter;
+    font: normal 105% American Typewriter;
     background-color: white;
   }
   span +span {
     margin-left: 3%;
+  }
+  .footer {
+    position: static;
   }
 
 </style>

@@ -14,8 +14,8 @@ import { Vue, Component } from 'vue-property-decorator'
 // import postModel from '~/models/postModel'
 import NavigationBar from '~/components/NavigationBar.vue'
 import FooterPanel from '~/components/FooterPanel.vue'
-import PostList from '~/components/PostList.vue'
-import discussionStore from '~/store/modules/discussions_store'
+import PostList from '~/components/organisms/PostList.vue'
+import { discussionStore } from '~/store/modules/discussions_store'
 
 @Component({
   components: {

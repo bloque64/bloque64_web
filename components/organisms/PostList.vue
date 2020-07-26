@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-for="postShot in postShots()" :key="postShot">
+    <div v-for="(postShot, index) in postShots()" :key="index">
       <b-container :class="'grid-container'">
-        <div v-for="post in postShot[0]" :key="post">
+        <div v-for="(post, indexPost) in postShot[0]" :key="indexPost">
           <b-col>
             <PostSummary
               :post="post"
@@ -18,9 +18,9 @@
 <script lang = "ts">
 import 'reflect-metadata'
 import { Vue, Component } from 'vue-property-decorator'
-import discussionStore from '../store/modules/discussions_store'
-import postModel from '../models/postModel'
-import PostSummary from '~/components/PostSummary.vue'
+import { discussionStore } from '~/store/modules/discussions_store'
+import postModel from '~/models/postModel'
+import PostSummary from '~/components/organisms/PostSummary.vue'
 
 @Component({
   components: {
@@ -53,7 +53,6 @@ class PostList extends Vue {
           viewType.renderForPos])
       }
     })
-    // console.log(toReturn)
     return toReturn
   }
 

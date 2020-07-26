@@ -52,7 +52,6 @@ export default {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/auth',
     '@nuxtjs/markdownit'
   ],
   markdownit: {
@@ -93,6 +92,21 @@ export default {
     extend (config, ctx) {
       if (ctx.isDev) {
         config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+        if (ctx.isClient) {
+          config.module.rules.push({
+            enforce: 'pre',
+            test: /\.(js|vue|ts)$/,
+            loader: 'eslint-loader',
+            exclude: /(node_modules)/,
+            options: {
+              fix: true
+            }
+          })
+          config.node = {
+            fs: 'empty',
+            child_process: 'empty',
+          }
+        }
       }
     }
   },
