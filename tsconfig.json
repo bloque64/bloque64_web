@@ -9,6 +9,7 @@
         "esnext.asynciterable",
         "dom",
       ],
+      "typeRoots": [ "./types", "./node_modules/@types"],
       // configurations for ts-node
       "rootDir": "src",
       // Remember change module to esnext
@@ -34,11 +35,11 @@
       "types": [
         "@types/node",        
         "@nuxt/types",
-        
       ]
     },
     "exclude": [
-      "node_modules"
+      "node_modules",
+      "types"
     ],
     
     
