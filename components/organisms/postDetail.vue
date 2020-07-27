@@ -8,7 +8,6 @@
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import detailPostStore from '~/store/modules/detail_post_store'
-import postModel from '~/models/postModel'
 // import { Remarkable} from 'remarkable'
 
 @Component({

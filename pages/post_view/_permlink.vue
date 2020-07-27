@@ -5,7 +5,7 @@
 <script lang = "ts">
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import postDetail from '~/components/postDetail.vue'
+import postDetail from '~/components/organisms/postDetail.vue'
 
 @Component({
   components: {
