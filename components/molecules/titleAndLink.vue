@@ -20,9 +20,8 @@ export default class titleAndLink extends Vue {
   @Emit()
   peekPost () {
     if (this.permlink && this.author) {
-      console.log('en el titleAndLink ', this.permlink)
-      console.log('cosos')
-      detailPostStore.get_aditional_post_details(this.author, this.permlink)
+      console.log('en el titleAndLink ', this.author, this.permlink)
+      detailPostStore.get_aditional_post_details({ author: this.author, permlink: this.permlink })
     }
   }
 }

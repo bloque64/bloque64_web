@@ -16,22 +16,20 @@ console.log('Aquí muy casual en el detail post store') */
   dynamic: true
 })
 class detail_post_store extends VuexModule {
-    post_info: postModel | undefined
+    post_info: any
     @Mutation
-    set_post_values (post: postModel) {
+    set_post_values (post: any) {
       this.post_info = post
     }
 
     @Action({ commit: 'set_post_values' })
-    async get_aditional_post_details (author: string, permlink : string) {
-      console.log(' en el get_aditional_post_details antes de la llamada')
-      const result = await service.get_detail_post(author, permlink)
+    async get_aditional_post_details ( dict:{author: string, permlink : string}) {
+      const result = await service.get_detail_post(dict.author, dict.permlink)
       .catch( (err : string) => console.log('error chama, ', err) )
-      console.log(result, ' en el get_aditional_post_details')
       return result
     }
 
-    get post (): postModel | undefined {
+    get post (): any {
       return this.post_info
     }
 }
