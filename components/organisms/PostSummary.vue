@@ -70,7 +70,7 @@
 <script lang = 'ts'>
 import 'reflect-metadata'
 import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator'
-import { Marked, Renderer } from '@ts-stack/markdown'
+import Marked from '~/utils/markdownParser'
 import { JSDOM } from 'jsdom'
 import postModel from '~/models/postModel'
 import circleArrow from '~/components/molecules/circleArrow.vue'
@@ -78,16 +78,6 @@ import detailPostStore from '~/store/modules/detail_post_store'
 import footerBarPost from '~/components/molecules/footerBarPost.vue'
 import titleAndLink from '~/components/molecules/titleAndLink.vue'
 
-Marked.setOptions({
-  renderer: new Renderer(),
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: false,
-  smartLists: true,
-  smartypants: false
-})
 // Component that summarizes a post
 @Component({
   components: {
