@@ -1,8 +1,8 @@
 import 'reflect-metadata'
-import container from '../../utils/inversify.config'
+import container from '~/utils/inversify.config'
 import { Module, VuexModule, Mutation, Action, getModule } from 'vuex-module-decorators'
-import postModel from '../../models/postModel'
-import { IDiscussionService, TYPES } from '../../utils/interfaces'
+import postModel from '~/models/postModel'
+import { IDiscussionService, TYPES } from '~/utils/interfaces'
 import { Store} from '../index'
 // import { injectable } from "inversify"
 
@@ -28,11 +28,13 @@ export class discussion_store extends VuexModule
     @Action ({commit : 'setList'})
     async get_by_trending () {
         console.log('En el get_by_trending')
-        return await service.get_discussion_by_filter['trending']        
+        const bval = await service.get_discussion_by_filter['trending']
+        console.log(bval)
+        return bval
     }
 
-    get discussion() : postModel[] {        
-        return this.discussionList || null
+    get discussion() : postModel[] {
+        return this.discussionList
     }
 
 }
