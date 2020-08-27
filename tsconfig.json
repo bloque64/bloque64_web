@@ -7,7 +7,10 @@
       "lib": [
         "esnext",
         "esnext.asynciterable",
-        "dom",
+        "DOM",
+        "ES5",
+        "ES6",
+        "DOM.Iterable"
       ],
       "typeRoots": [ "./types", "./node_modules/@types"],
       // configurations for ts-node
