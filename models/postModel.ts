@@ -1,19 +1,20 @@
 type postModel =
 {
-    comments_number: Number,
-    upvotes: Number,
-    title: String,
-    authorperm: String,
-    introductory_text: String,
-    permlink : String,
-    url_img_list: String[],
-    author : String,
-    tags : String[],
-    external_links: String[],
-    mentioned_users: String[],
-    main_tag : String,
+    comments_number: number,
+    pending_token: number,
+    upvotes: number,
+    title: string,
+    authorperm: string,
+    introductory_text: string,
+    permlink : string,
+    url_img_list: string[],
+    author : string,
+    tags : string[],
+    external_links: string[],
+    mentioned_users: string[],
+    main_tag : string,
     date: Date,
     body: string | undefined
-}
+} | null
 
 export default postModel

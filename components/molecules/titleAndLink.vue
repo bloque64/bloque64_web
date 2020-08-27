@@ -1,14 +1,13 @@
 <template class="summary_title">
-  <nuxt-link :to="'/post_view/' + permlink" class="link">
-    <div @click="peekPost()">
-      {{ title }}
-    </div>
+  <nuxt-link :to="{ name: 'author-permlink', params: { author : '@' + author, permlink } }"
+  class="link"
+  >
+    {{ title }}
   </nuxt-link>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Emit, Prop } from "nuxt-property-decorator"
-import detailPostStore from '~/store/modules/detail_post_store'
 
 @Component({
 })
@@ -17,13 +16,6 @@ export default class titleAndLink extends Vue {
   @Prop() author : string | undefined
   @Prop() title : string | undefined
 
-  @Emit()
-  peekPost () {
-    if (this.permlink && this.author) {
-      detailPostStore.get_aditional_post_details({ author: this.author,
-      permlink: this.permlink })
-    }
-  }
 }
 </script>
 

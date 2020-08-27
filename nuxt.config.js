@@ -33,7 +33,8 @@ export default {
   plugins: [
     { src: './plugins/medium-editor', ssr: false },
     { src: './plugins/vuelidate.js' },
-    { src: '~/plugins/fontawesome.js' }
+    { src: '~/plugins/fontawesome.js' },
+    { src: '~/plugins/vuex-persist.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules

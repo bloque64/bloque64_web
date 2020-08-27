@@ -16,7 +16,7 @@
     </span>
     <span>
       <commentGlobe class="footer-element" />
-      <numberA :number="votesNumber" class="footer-element" />
+      <numberA :number="commentsNumber" class="footer-element" />
     </span>
   </div>
 </template>
