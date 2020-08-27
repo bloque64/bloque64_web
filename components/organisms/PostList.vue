@@ -29,6 +29,7 @@ import PostSummary from '~/components/organisms/PostSummary.vue'
 })
 class PostList extends Vue {
   get posts () : postModel[] {
+    console.log('En el postList ', discussionStore.discussionList)
     return discussionStore.discussionList
   }
 

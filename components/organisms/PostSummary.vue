@@ -70,13 +70,13 @@
 <script lang = 'ts'>
 import 'reflect-metadata'
 import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator'
-import Marked from '~/utils/markdownParser'
-import { JSDOM } from 'jsdom'
 import postModel from '~/models/postModel'
 import circleArrow from '~/components/molecules/circleArrow.vue'
 import detailPostStore from '~/store/modules/detail_post_store'
 import footerBarPost from '~/components/molecules/footerBarPost.vue'
 import titleAndLink from '~/components/molecules/titleAndLink.vue'
+import { componentsContainer } from '~/utils/inversify.config'
+import { IParserSummaryText, IStringify, TYPES } from '~/utils/interfaces'
 
 // Component that summarizes a post
 @Component({
@@ -98,21 +98,14 @@ class PostSummary extends Vue {
 
   created () {
     if (this.post) {
-      this.mainPicture = this.post.url_img_list[0]
-      const markdownToHtml = Marked.parse(this.post.introductory_text.toString())
-      global.DOMParser = new JSDOM().window.DOMParser
-      const parser = new DOMParser()
-      const parsedHtml = parser.parseFromString(markdownToHtml, 'text/html')
-      const links = parsedHtml.getElementsByTagName('a')
-      if (!this.mainPicture) {
-        this.mainPicture = parsedHtml.images[0].src
-      }
-      while (links[0]) {
-        if (links[0].parentNode) {
-          links[0].parentNode.removeChild(links[0])
-        }
-      }
-      this.renderedIntroductoryText = parsedHtml.body.textContent
+      const parser = componentsContainer.
+      get<IParserSummaryText>(TYPES.IParserSummaryText)
+      const stringifier = componentsContainer.
+      get<IStringify>(TYPES.IStringify)
+      const parsedHtml = parser.parseSummaryText(this.post.introductory_text.
+      toString())
+      this.mainPicture = this.post.url_img_list[0] || parsedHtml.images[0].src
+      this.renderedIntroductoryText = stringifier.stringifyContent(parsedHtml)
     }
   }
 }
@@ -155,7 +148,6 @@ export default PostSummary
   margin: 2px;
   padding: 2px;
   background-color: white;
-
 }
 
 .card {
