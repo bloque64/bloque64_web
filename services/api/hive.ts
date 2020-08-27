@@ -1,6 +1,5 @@
 import 'reflect-metadata'
 import { injectable } from 'inversify'
-import postModel from '../../models/postModel'
 import { IDetailPostService } from '../../utils/interfaces'
 const dhive = require('@hivechain/dhive')
 // import { dict_constructor } from "../../utils/decorators"
@@ -19,18 +18,19 @@ class hiveApiService implements IDetailPostService {
       console.log('en el get_detail_post ', author, ' ', permlink)
       return await this.client.database
         .call('get_content', [author, permlink])
-        .then( (result:any) => console.log('Lo hice joputa ', result) )
+        .then( (result : any) => { 
+          return { body: result.body }
+        })
         .catch((err: string) => {
-          console.log('Error man \n' + err)
+          console.log('Error en get_detail_post in hive service \n' + err)
         })
     }
-
     /**
      *
      */
     constructor () {
       this.urlApi = urlApi
-      this.client = new dhive.Client('https://api.openhive.network')
+      this.client = new dhive.Client(urlApi)
       console.log("Alguna vez se llama al constructor de hive.ts ", this.client.database)
     }
 }
