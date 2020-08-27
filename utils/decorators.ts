@@ -25,25 +25,32 @@ import postModel from "../models/postModel";
     }        
 } */
 
-export function dict_constructor (response_data: any)
-{        
-        
-    const discussion_posts = response_data.map(( post: { [x: string]: any }) => <postModel> {
-        comments_number: post['children'],
-        upvotes: post['active_votes'].length,
-        title: post['title'],
-        authorperm: post['authorperm'],
-        introductory_text: post['desc'],
-        permlink : post['permlink'],
-        url_img_list: JSON.parse(post['json_metadata'])['image'],
-        author : post['author'],
-        tags : JSON.parse(post['json_metadata'])['tags'],
-        external_links: JSON.parse(post['json_metadata'])['links'],
-        mentioned_users: JSON.parse(post['json_metadata'])['users'],
-        main_tag : JSON.parse(post['json_metadata'])['tags'][0],
-        date: post['created'].split('T')[0],
-        pending_token: Number (post['pending_token'].toString().slice(0, post['pending_token'].toString().length -8) + "." + post['pending_token'].toString().slice(post['pending_token'].toString().length - 8, post['pending_token'].toString().length -6)),
-        body: undefined
-         })
-    return discussion_posts;
+export function dict_constructor (response_data: any): postModel[]
+{   
+    console.log('en el dict_constructor ', ...response_data)
+    return response_data
+    .map((post: { [x: string]: any } ) => postModelConst(post) )
+}
+
+export function postModelConst (post: { [x: string]: any } ): postModel {
+    console.log('en el postModelConst ', post)
+    return <postModel> {
+        /* [post['permlink']]: { */
+            comments_number: post['children'],
+            upvotes: post['active_votes'].length,
+            title: post['title'],
+            authorperm: post['authorperm'],
+            introductory_text: post['desc'],
+            permlink : post['permlink'],
+            url_img_list: JSON.parse(post['json_metadata'])['image'],
+            author : post['author'],
+            tags : JSON.parse(post['json_metadata'])['tags'],
+            external_links: JSON.parse(post['json_metadata'])['links'],
+            mentioned_users: JSON.parse(post['json_metadata'])['users'],
+            main_tag : JSON.parse(post['json_metadata'])['tags'][0],
+            date: post['created'].split('T')[0],
+            pending_token: Number (post['pending_token'].toString().slice(0, post['pending_token'].toString().length -8) + "." + post['pending_token'].toString().slice(post['pending_token'].toString().length - 8, post['pending_token'].toString().length -6)),
+            body: post.body
+    //}
+    }
 }
