@@ -14,7 +14,7 @@ export interface IDiscussionService {
 };
 
 export interface IDetailPostService {
-    get_detail_post (author:string, permlink: string) : any,
+    get_detail_post (author:string, permlink: string) : Promise<postModel>,
 }
 
 export interface IVoteService {
@@ -47,6 +47,23 @@ export interface ILogginDispatcher {
     dispatchLogin(callbackURL: string) : any
 }
 
+export interface IParserSummaryText {
+    parseSummaryText(document: string): Document
+}
+
+export interface IStringify {
+    stringifyContent(document: Document) : string
+    stringifyFullContent(document: Document) : string
+}
+
+export interface IParserFullText {
+    parseFullText(document: string): Document
+}
+
+export interface IRenderCleanText {
+    renderCleanText(document: Document): string
+}
+
 export const TYPES =
 {
   IDiscussionService: Symbol('IDiscussionService'),
@@ -56,5 +73,9 @@ export const TYPES =
   ILogger: Symbol('ILogger'),
   IPostService: Symbol('IPostService'),
   IUserDetails: Symbol('IUserDetails'),
-  ILogginDispatcher: Symbol('ILogginDispatcher')
+  ILogginDispatcher: Symbol('ILogginDispatcher'),
+  IParserSummaryText: Symbol('IParserSummaryText'),
+  IParserFullText: Symbol('IParserFullText'),
+  IRenderCleanText: Symbol('IRenderCleanText'),
+  IStringify: Symbol('IStringify')
 }
