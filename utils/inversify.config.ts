@@ -12,7 +12,8 @@ import {
   IParserSummaryText,
   IParserFullText,
   IRenderCleanText,
-  IStringify
+  IStringify,
+  IContentReplier
 } from '~/utils/interfaces'
 import scottApi from '~/services/api/scott'
 import compoundHiveAndScott from '~/services/api/compoundHiveAndScott'
@@ -24,6 +25,7 @@ const container = new Container()
 const hiveConnector = new hivesignerService()
 container.bind<IDiscussionService>(TYPES.IDiscussionService).to(scottApi).inTransientScope()
 container.bind<IDetailPostService>(TYPES.IDetailPostService).to(compoundHiveAndScott)
+container.bind<IContentReplier>(TYPES.IContentReplier).to(compoundHiveAndScott)
 container.bind<ILogger>(TYPES.ILogger).toConstantValue(hiveConnector)
 container.bind<IPostService>(TYPES.IPostService).toConstantValue(hiveConnector)
 container.bind<IVoteService>(TYPES.IVoteService).toConstantValue(hiveConnector)

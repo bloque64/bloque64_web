@@ -1,10 +1,13 @@
 <template>
   <b-container>
-    <div v-html="renderedText"> </div>
+    <editor-component
+    :text="renderedText"
+    :editor-options="editorOptions"
+    />
     <footerBarPost
-      :numbersBLQ="post.pending_token"
-      :votesNumber="post.upvotes"
-      :commentsNumber="post.comments_number"
+      :numbers-blq="post.pending_token"
+      :votes-number="post.upvotes"
+      :comments-number="post.comments_number"
     />
   </b-container>
 </template>
@@ -14,6 +17,7 @@ import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import detailPostStore from '~/store/modules/detail_post_store'
 import footerBarPost from '~/components/molecules/footerBarPost.vue'
+import editorComponent from '~/components/molecules/editorComponent.vue'
 import postModel from '~/models/postModel'
 import { componentsContainer } from '~/utils/inversify.config'
 import { IParserFullText,
@@ -23,16 +27,18 @@ import { IParserFullText,
         } from '~/utils/interfaces'
 @Component({
   components: {
-    footerBarPost
+    footerBarPost,
+    editorComponent
   }
 })
 class postDetail extends Vue {
   parser = componentsContainer.get<IParserFullText>(TYPES.IParserFullText)
   sanitizer = componentsContainer.get<IRenderCleanText>(TYPES.IRenderCleanText)
   stringifier =  componentsContainer.get<IStringify>(TYPES.IStringify)
-  created () {
-    
-  }
+  editorOptions = {
+        toolbar: false,
+        disableEditing: true
+      }
 
   get post() : postModel {
     return detailPostStore.postInfo

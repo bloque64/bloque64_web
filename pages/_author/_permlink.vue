@@ -1,16 +1,19 @@
 <template>
-  <div> 
-    <div v-if="state === 'SUCCESS'"> 
-      <postDetail />
-    </div>
-    <div v-else-if="state === 'FAIL'"> 
-      ERROR
-    </div>
-    <div v-else-if="state === 'PENDING'"> 
-      <loading-component />
-    </div>
-  </div> 
-  
+  <div>
+    <b-container fluid>
+      <div v-if="state === 'SUCCESS'"> 
+        <post-detail />
+      </div>
+      <div v-else-if="state === 'FAIL'"> 
+        ERROR
+      </div>
+      <div v-else-if="state === 'PENDING'"> 
+        <loading-component />
+      </div>
+    </b-container>
+    <br />
+    <br />
+  </div>
 </template>
 
 <script lang = "ts">

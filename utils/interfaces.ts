@@ -11,10 +11,14 @@ export interface IDiscussionService {
     };
     get_discussions (filter: string, query: string): Promise<any>
 
-};
+}
+
+export interface IContentReplier {
+    get_content_replies(author: string, permlink: string): Promise<postModel[]>
+}
 
 export interface IDetailPostService {
-    get_detail_post (author:string, permlink: string) : Promise<postModel>,
+    get_detail_post (author:string, permlink: string): Promise<postModel>
 }
 
 export interface IVoteService {
@@ -77,5 +81,6 @@ export const TYPES =
   IParserSummaryText: Symbol('IParserSummaryText'),
   IParserFullText: Symbol('IParserFullText'),
   IRenderCleanText: Symbol('IRenderCleanText'),
-  IStringify: Symbol('IStringify')
+  IStringify: Symbol('IStringify'),
+  IContentReplier: Symbol('IContentReplier')
 }

@@ -1,13 +1,15 @@
 import 'reflect-metadata'
 import { injectable } from 'inversify'
-import { IDetailPostService } from '../../utils/interfaces'
+import { IDetailPostService, IContentReplier } from '~/utils/interfaces'
+import postModel from '~/models/postModel'
+import { dict_constructor } from '~/utils/decorators'
 const dhive = require('@hivechain/dhive')
 // import { dict_constructor } from "../../utils/decorators"
 
 const urlApi = 'https://api.hive.blog'
 
 @injectable()
-class hiveApiService implements IDetailPostService {
+class hiveApiService implements IDetailPostService, IContentReplier {
     urlApi: string
     client: any
     getDiscussions (filter: string, query: string): Promise<any> {
@@ -31,8 +33,14 @@ class hiveApiService implements IDetailPostService {
     constructor () {
       this.urlApi = urlApi
       this.client = new dhive.Client(urlApi)
-      console.log("Alguna vez se llama al constructor de hive.ts ", this.client.database)
     }
+    async get_content_replies(author: string, permlink: string): Promise<postModel[]> {
+      return await this.client.database
+      .call('get_content_replies', [author, permlink])
+      .then((result: any) => dict_constructor(result) )
+      .catch((err:any) => {console.error(err); return []} )
+    }
+
 }
 
 export default hiveApiService
