@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-0">
     <TopBar />
     <center><img src="~/assets/bloque64_iso_400.png"></center>
     <nuxt />

@@ -12,9 +12,11 @@
         <b-col offset="8" class="buttons-right">
           <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'pen-square' }" />
           <b-img
+          thumbnail  
+          rounded="circle"
           v-if="hasUserName()"
           :src="peekUrlImg()"
-          class= "top-bar-element" 
+          class= "top-bar-element top-img" 
           />
           <toogleA class= "top-bar-element" />
           <sideBar class= "top-bar-element" />
@@ -91,6 +93,10 @@ export default TopBar
 .buttons-right {
   text-align: right;
 }
+
+.top-img {
+  max-width: 50%;
+  }
 
 .list {
   cursor:pointer;

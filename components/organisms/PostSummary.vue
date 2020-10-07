@@ -1,5 +1,5 @@
 <template>
-  <div class="post-summary">
+  <div class="post-summary mt-0">
     <b-card class="mb-3" style="border: none;" align="left">
       <strong v-if="renderForPosition === 'first_view'">
         <b-card-title class="summary_title">
@@ -16,12 +16,14 @@
       <b-row>
         <b-col :md="renderInfo[renderForPosition][0]">
           <b-card
+            class="mb-3"
             img-alt="Card image"
             :img-src="mainPicture"
             :img-bottom="renderForPosition !== 'first_view'"
             :img-width="renderInfo[renderForPosition][2]"
           />
-          <span v-if="renderForPosition === 'second_view'">
+          <span v-if="renderForPosition === 'second_view'"
+                class="mt-0">
             <strong>
               <b-card-title class="summary_title">
                 <titleAndLink 

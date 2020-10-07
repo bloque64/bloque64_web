@@ -5,10 +5,10 @@
     :editor-options="editorOptions"
     />
     <footerBarPost
-      :numbers-blq="post.pending_token"
-      :votes-number="post.upvotes"
-      :comments-number="post.comments_number"
-    />
+      :numbersBLQ="post.pending_token"
+      :votesNumber="post.upvotes"
+      :commentsNumber="post.comments_number" 
+      />  
   </b-container>
 </template>
 
@@ -46,7 +46,7 @@ class postDetail extends Vue {
 
   get renderedText() : string {
     if (this.post !== null)
-    return this.stringifier.stringifyFullContent(this.parser.parseFullText(this.post.body || ''))
+      return this.stringifier.stringifyFullContent(this.parser.parseFullText(this.post.body || '', {img: "img-thumbnail", p: "text-distribution" }))
     return ''
   }
 }
@@ -57,4 +57,9 @@ export default postDetail
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+.text-distribution {
+    text-justify: distribute;
+    text-align: justify;
+    font: normal 20px American Typewriter;
+}
 </style>
