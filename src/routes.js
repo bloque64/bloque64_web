@@ -1,6 +1,6 @@
 // routes.js
 
-import Home from './components/Home.vue';
+//import Home from './components/Home.vue';
 import PostList from './components/PostList.vue';
 import Register from './components/Register.vue';
 import Login from './components/Login.vue';

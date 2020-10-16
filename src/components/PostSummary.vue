@@ -22,8 +22,8 @@
         <div class="item1">1</div>
         <div class="item2">2</div>
         <div class="item3">3</div>  
-        <div class="item4">4</div>
-        <div class="item4">5</div>
+        <div class="item4">{{ category }}</div>
+        <div class="item5">{{ body }}</div>
       </div>
 
 
@@ -31,14 +31,58 @@
 
 <script>
 
+const dhive = require('@hiveio/dhive');
+const Remarkable = require('remarkable');
+
+let opts = {};
+
+//connect to production server
+opts.addressPrefix = 'STM';
+opts.chainId =
+    '0000000000000000000000000000000000000000000000000000000000000000';
+//connect to server which is connected to the network/production
+const client = new dhive.Client('https://api.openhive.network');
+
+
 export default {
   name: 'PostSummary', //this is the name of the component
-  props: ['author', 'title', 'authorperm', 'headline']
+  props: ['author', 'title', 'authorperm', 'headline', 'body'],
+  
+ data() {
 
+    return {
+      loading: true,
+      category: ""
+    }
+
+ },
+
+
+  async created() {
+
+    const author = "cyclope"
+    const permlink = "de-lo-peor-a-la-bendicion"
+
+    await client.database.call('get_content', [author, permlink]).then(result => {
+      
+      //const md = new Remarkable({ html: true, linkify: true });
+      //message.log("kjhkj")
+      //this.body = md.render('# Remarkable ');
+      this.body = result.body;
+      this.title = result.title;
+      this.category = result.category;
+
+      
+    });
+
+    
+
+  }
 
 }
 </script>
-<style>
+
+ç<style>
 
 .post-summary {
 
