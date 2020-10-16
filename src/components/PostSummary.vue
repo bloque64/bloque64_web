@@ -4,7 +4,7 @@
       <div class="post-picture-thumbnail"></div>
       <div class="summary_title">{{ title }}</div>
       <div class="summary_headlines">{{ headline }} </div>
-      -->
+
 
       <div class="grid-container">
         <div class="item1">by @{{ author}}</div>
@@ -15,6 +15,17 @@
         <div class="item6"></div>
         <div class="item7"></div>
       </div>
+
+     -->
+
+      <div class="grid-container">
+        <div class="item1">1</div>
+        <div class="item2">2</div>
+        <div class="item3">3</div>  
+        <div class="item4">4</div>
+        <div class="item4">5</div>
+      </div>
+
 
 </template>
 
@@ -64,7 +75,7 @@ export default {
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 200px auto;
   grid-gap: 2px;
   background-color: white;
   padding: 2px;
@@ -76,42 +87,54 @@ export default {
 
 
 .item1 {
+  
+  font: normal 13px American Typewriter;
+  background-color: white;
+  border-style: solid;
+  border-width: 2px;
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 3;
+}
+
+.item2 {
+
   font: normal 12px American Typewriter;
   background-color: white;
   border-style: solid;
+    border-width: 2px;
+  grid-row-start: 2;
+  grid-row-end: 5;
+
 }
 
 .item3 {
-  grid-row-start: 2;
-  grid-row-end: 5;
+
   font: normal 12px American Typewriter;
   background-color: white;
   border-style: solid;
+    border-width: 2px;
 }
 
 .item4 {
-  grid-column-start: 2;
-  grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 5;
+
   font: normal 12px American Typewriter;
   background-color: white;
   text-align: left;
   border-style: solid;
+    border-width: 2px;
 }
 
+
 .item5 {
-  grid-column-start: 1;
-  grid-column-end: 1;
-  grid-row-start: 2;
-  grid-row-end: 2;
+
   font: normal 12px American Typewriter;
   background-color: white;
   text-align: left;
   border-style: solid;
+    border-width: 2px;
+
 }
+
 
 
 </style>
