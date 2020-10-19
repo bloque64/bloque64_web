@@ -6,9 +6,9 @@
 		
 
     <top-bar/>
-    <center><img src=./assets/bloque64_iso_400.png></center>
-    <navigation-bar/>
-    <router-view/>ff
+    <center><a href="/"><img href="/" src=./assets/bloque64_iso_400.png></a></center>
+    <!-- <navigation-bar/> -->
+    <router-view/>
     <footer-panel/>
  
   </div>
@@ -18,7 +18,7 @@
 
 <script>
 
-import NavigationBar from '@/components/NavigationBar.vue'
+//import NavigationBar from '@/components/NavigationBar.vue'
 import FooterPanel from '@/components/FooterPanel.vue'
 import TopBar from '@/components/TopBar.vue'
 
@@ -26,7 +26,6 @@ export default {
 
 	name: 'app',
 	components: {
-		'navigation-bar': NavigationBar,
     'footer-panel': FooterPanel,
     'top-bar': TopBar,
 	}

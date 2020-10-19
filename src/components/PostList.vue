@@ -1,5 +1,6 @@
 <template>
   <div>
+    <navigation-bar/>
     <h1>{{ category }}</h1>
 
     <div v-for="post in posts" v-bind:key="post.authorperm">
@@ -18,12 +19,15 @@
 
 import axios from "axios"
 import PostSummary from '@/components/PostSummary.vue'
+import NavigationBar from '@/components/NavigationBar.vue'
 
 export default {
   name: 'PostList', 
   props: ["category", "sort_by"],
   components: {
-		'post-summary': PostSummary,
+    'post-summary': PostSummary,
+    'navigation-bar': NavigationBar
+    
 	},
 
   data() {

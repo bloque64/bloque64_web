@@ -74,10 +74,9 @@ export default {
       const md = new Remarkable({ html: true});
       
       this.htmlBody = md.render(result.body);
-      this.title = result.title;
       this.category = result.category;
 
-      console.log(result.body);
+      //console.log(result.body);
 
       
     },
