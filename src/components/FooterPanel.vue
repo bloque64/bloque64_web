@@ -2,9 +2,9 @@
 		<div class="footer-basic-centered">
 
 			<p class="footer-links">
-				<a><router-link to='/portada'>Portada</router-link></a>
+				<a><router-link to='/'>Portada</router-link></a>
 				·
-				<a href='https://steemit.com/@bloque64'>Blog</a>
+				<a href='https://hive.blog@bloque64'>Blog</a>
 				.
 				<a><router-link to='/nosotros'>Nosotros</router-link></a>
 				·

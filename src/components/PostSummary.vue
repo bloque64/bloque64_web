@@ -23,7 +23,9 @@
         <div class="item2">2</div>
         <div class="item3">3</div>  
         <div class="item4">{{ category }}</div>
-        <div class="item5">{{ body }}</div>
+        <div class="item5">
+            <span v-html="htmlBody"></span>
+         </div>
       </div>
 
 
@@ -32,7 +34,11 @@
 <script>
 
 const dhive = require('@hiveio/dhive');
-const Remarkable = require('remarkable');
+import {Remarkable} from 'remarkable';
+
+const md = new Remarkable();
+let markdown = md.render('# Remarkable ');
+console.log(markdown);
 
 let opts = {};
 
@@ -52,28 +58,31 @@ export default {
 
     return {
       loading: true,
-      category: ""
+      category: "",
+      htmlBody: this.body
     }
 
  },
 
-
-  async created() {
+  created() {
 
     const author = "cyclope"
     const permlink = "de-lo-peor-a-la-bendicion"
 
-    await client.database.call('get_content', [author, permlink]).then(result => {
+    client.database.call('get_content', [author, permlink]).then(result => {
       
-      //const md = new Remarkable({ html: true, linkify: true });
-      //message.log("kjhkj")
-      //this.body = md.render('# Remarkable ');
-      this.body = result.body;
+      const md = new Remarkable({ html: true});
+      
+      this.htmlBody = md.render(result.body);
       this.title = result.title;
       this.category = result.category;
 
+      console.log(result.body);
+
       
-    });
+    },
+    
+    );
 
     
 

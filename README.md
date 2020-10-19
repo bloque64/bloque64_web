@@ -1,5 +1,3 @@
-de# bloque_vue
-
 ## Project setup
 ```
 npm install

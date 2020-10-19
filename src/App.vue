@@ -8,7 +8,7 @@
     <top-bar/>
     <center><img src=./assets/bloque64_iso_400.png></center>
     <navigation-bar/>
-    <router-view/>
+    <router-view/>ff
     <footer-panel/>
  
   </div>

@@ -1,6 +1,7 @@
 <template>
     <div class="top-bar">
 		17.07.2019
+    <nav><a><router-link to='/new_post'>New Post</router-link></a></nav>
     </div>
 </template>
 
