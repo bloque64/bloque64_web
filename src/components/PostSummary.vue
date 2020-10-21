@@ -44,8 +44,7 @@ let opts = {};
 
 //connect to production server
 opts.addressPrefix = 'STM';
-opts.chainId =
-    '0000000000000000000000000000000000000000000000000000000000000000';
+opts.chainId = '0000000000000000000000000000000000000000000000000000000000000000';
 //connect to server which is connected to the network/production
 const client = new dhive.Client('https://api.openhive.network');
 

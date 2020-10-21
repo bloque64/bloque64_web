@@ -42,6 +42,10 @@ Body - Cuerpo
 
 <script>
 
+    const dhive = require('@hiveio/dhive');
+    //connect to server which is connected to the network/production
+    const client = new dhive.Client('https://api.openhive.network');
+
     export default { 
 
         name: "PostEditor",
@@ -56,14 +60,36 @@ Body - Cuerpo
 
         methods: {
 
-
             processForm: function() {
 
+                const key = dhive.PrivateKey.from('');
+
                 console.log({ context: this.context});
+
+                client.broadcast
+                    .comment(
+                        {
+                            author: '',
+                            body: this.context,
+                            json_metadata: '',
+                            parent_author: '',
+                            parent_permlink: '',
+                            permlink:"permperkdom",
+                            title: 'title'
+                        },
+                        key
+                    )
+                    .then(
+                        function(result) {
+                            console.log("Comment included in block " + result.block_num);
+                        },
+                        function(error) {
+                            console.error(error);
+                            alert(error);
+                        }
+                     );
                 //alert(this.context);
             }
-
-
         }
     }
 
