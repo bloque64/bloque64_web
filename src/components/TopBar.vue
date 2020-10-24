@@ -1,7 +1,8 @@
 <template>
     <div class="top-bar">
-		17.07.2019
-    <nav><a><router-link to='/new_post'>New Post</router-link></a></nav>
+		{{ get_date() }}
+     <nav><a><router-link to='/login'><img src="../../src/assets/icons/account_icon.png"></router-link></a></nav>
+    <nav><a><router-link to='/new_post'><img src="../../src/assets/icons/new_post_icon_30.png"></router-link></a></nav>
     </div>
 </template>
 
@@ -11,7 +12,16 @@ export default {
   name: 'top-bar',
   props: {
     msg: String
-  }
+  },
+
+   methods: {
+
+            get_date: function() {
+              var today = new Date();
+              var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+              return(date);
+          }
+   }
 }
 </script>
 

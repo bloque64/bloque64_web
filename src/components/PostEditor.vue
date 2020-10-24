@@ -13,9 +13,6 @@ Body - Cuerpo
 
 -->
 
-
-
-
        <div class="editor">
         
         <form class ="news_form" id="posteditor_form" @submit.prevent="processForm">
