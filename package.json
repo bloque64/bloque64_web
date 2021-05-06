@@ -38,7 +38,7 @@
     "nuxt": "^2.0.0",
     "nuxt-fontawesome": "^0.4.0",
     "popper.js": "^1.16.1",
-    "sanitize-html": "^1.27.2",
+    "sanitize-html": "^2.3.2",
     "tls": "^0.0.1",
     "v-tooltip": "^2.0.3",
     "vue-meta": "^2.4.0",
